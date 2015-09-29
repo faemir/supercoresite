@@ -19,6 +19,23 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   // have resolved and content has been stamped to the page
   app.addEventListener('dom-change', function() {
     console.log('Our app is ready to rock!');
+    $('.owl-carousel').owlCarousel({
+      stagePadding: 30,
+      loop: true,
+      margin: 10,
+      nav: true,
+      responsive: {
+        0: {
+          items: 1
+        },
+        600: {
+          items: 3
+        },
+        // 1000:{
+        //     items:5
+        // }
+      }
+    })
   });
 
   // See https://github.com/Polymer/polymer/issues/1381

@@ -34,11 +34,11 @@ body {
 
 .supercore-logo {
   max-width: 192px;
-  width: 70%;
+  width: 90%;
 }
 
-img.featured-game {
-  width: 30%;
+.featured-game {
+  width: 100%;
   margin: 1%;
   height: 100%;
   box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12), 0px 3px 1px -2px rgba(0, 0, 0, 0.2);
@@ -61,7 +61,7 @@ section.super-section {
 }
 
 p.section-title {
-  margin-left: 1.7%;
+  margin-left: 0px;
   color: white;
   font-size: 1.4em;
   font-weight: 700;
@@ -92,4 +92,24 @@ a:link.light-link {
 a:hover.light-link {
   color: white;
   text-decoration: none;
+}
+
+a.section-title-link{
+  color: white;
+  text-decoration: none;
+  /*font-style: italic;*/
+  font-weight: normal;
+  font-size: 0.8em;
+  margin-left: 2%;
+  opacity: 0.7;
+}
+
+a.section-title-link:hover{
+  color: white;
+  text-decoration: none;
+  /*font-style: italic;*/
+  font-weight: normal;
+  font-size: 0.8em;
+  margin-left: 2%;
+  opacity: 1;
 }

@@ -30,6 +30,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <!-- will be replaced with elements/elements.vulcanized.html -->
   <link rel="import" href="elements/elements.html">
   <!-- endreplace-->
+  <link rel="stylesheet" href="bower_components/owl.carousel/dist/assets/owl.carousel.min.css">
+  <link rel="stylesheet" href="bower_components/owl.carousel/dist/assets/owl.theme.default.min.css">
 </head>
 
 <body unresolved class="fullbleed layout vertical">
@@ -37,8 +39,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <template is="dom-bind" id="app">
     <div id="main-container" class="layout vertical">
       <div class="flex header-back">
-
-
         <div class="flex header-content layout horizontal center">
           <div class="flex  layout horizontal center">
             <div class="logo-box">
@@ -62,28 +62,51 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       <div class="main-content">
 
         <section id="games" class="super-section start-layout vertical center">
-          <p class="section-title">FEATURED GAMES</p>
-          <div class="layout horizontal wrap center-center">
-            <img class="featured-game" src="images/concentric.png"></img>
-            <img class="featured-game" src="images/neondrop.png"></img>
+          <p class="section-title">
+            <svg height="10" width="10">
+              <circle cx="7" cy="7" r="7" stroke-width="3" fill="red" />
+            </svg> FEATURED GAMES <a class="section-title-link" href="http://supercore.itch.io/">more supercore games @ itch.io<img width="16" src="images/superarrow.png"></img></a></p>
+          <div class="owl-carousel layout horizontal wrap center-center">
+            <img class="featured-game" src="images/brain.gif"></img>
+            <video class="featured-game" id="video" autoplay="autoplay" muted="muted" preload="auto" loop="loop" poster="//i.imgur.com/Is5Y5zrh.jpg">
+              <source src="//i.imgur.com/Is5Y5zr.webm" type="video/webm">
+              <source src="//i.imgur.com/Is5Y5zr.mp4" type="video/mp4">
+              <object type="application/x-shockwave-flash" data="//s.imgur.com/include/flash/gifplayer.swf?imgur_video=http://i.imgur.com/Is5Y5zr.mp4&amp;imgur_width=854&amp;imgur_height=480&amp;imgur_url=http://imgur.com/Is5Y5zr" height="480" width="854">
+                <param name="movie" value="//s.imgur.com/include/flash/gifplayer.swf?imgur_video=http://i.imgur.com/Is5Y5zr.mp4&amp;imgur_width=854&amp;imgur_height=480&amp;imgur_url=http://imgur.com/Is5Y5zr">
+                <param name="allowscriptaccess" value="never">
+                <param name="flashvars" value="height=480&amp;width=854">
+                <param name="width" value="480">
+                <param name="height" value="854">
+                <param name="version" value="0">
+                <param name="scale" value="scale">
+                <param name="salign" value="tl">
+                <param name="wmode" value="opaque">
+              </object>
+            </video>
             <img class="featured-game" src="images/redlines.png"></img>
           </div>
         </section>
         <section id="latest" class="super-section">
-          <p class="section-title">LATEST</p>
+          <p class="section-title">
+            <svg height="10" width="10">
+              <circle cx="7" cy="7" r="7" stroke-width="3" fill="red" />
+            </svg> LATEST <a class="section-title-link" href="#">check out our blog <img width="16" src="images/superarrow.png"></a></p>
           <div>
-            <p>hello</p>
+            <p>Placeholder #1</p>
           </div>
           <div>
-            <p>hello</p>
+            <p>Placeholder #2</p>
           </div>
           <div>
-            <p>hello</p>
+            <p>Placeholder #3</p>
           </div>
         </section>
 
         <section id="team" class="super-section">
-          <p class="section-title">TEAM</p>
+          <p class="section-title">
+            <svg height="10" width="10">
+              <circle cx="7" cy="7" r="7" stroke-width="3" fill="red" />
+            </svg> TEAM</p>
           <div class="layout horizontal">
             <p>t1</p>
             <p>t2</p>
@@ -96,10 +119,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 
   </template>
-
+  <script src="bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="bower_components/owl.carousel/dist/owl.carousel.min.js"></script>
   <!-- build:js scripts/app.js -->
   <script src="scripts/app.js"></script>
   <!-- endbuild-->
+
 </body>
 
 </html>
