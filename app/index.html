@@ -37,10 +37,20 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <template is="dom-bind" id="app">
     <div id="main-container" class="layout vertical">
       <div class="flex header-back">
+
+
         <div class="flex header-content layout horizontal center">
-          <div class="flex logo-box">
-            <img class="supercore-logo" src="images/supercore3.png"></img>
+          <div class="flex  layout horizontal center">
+            <div class="logo-box">
+              <img class="supercore-logo" src="images/supercore3.png"></img>
+            </div>
+            <paper-tabs selected="0">
+              <paper-tab><a href="#games" class="light-link horizontal center-center layout">Games</a></paper-tab>
+              <paper-tab><a href="#latest" class="light-link horizontal center-center layout">Blog</a></paper-tab>
+              <paper-tab><a href="#team" class="light-link horizontal center-center layout">Team</a></paper-tab>
+            </paper-tabs>
           </div>
+
           <div class="flex social-box layout horizontal end-justified">
             <a class="layout vertical center light-link" href="https://twitter.com/super__core">
               <img class="twitter-logo" src="images/twitter.svg"></img>
@@ -50,7 +60,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         </div>
       </div>
       <div class="main-content">
-        <section class="super-section start-layout vertical center">
+
+        <section id="games" class="super-section start-layout vertical center">
           <p class="section-title">FEATURED GAMES</p>
           <div class="layout horizontal wrap center-center">
             <img class="featured-game" src="images/concentric.png"></img>
@@ -60,9 +71,24 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         </section>
         <section id="latest" class="super-section">
           <p class="section-title">LATEST</p>
+          <div>
+            <p>hello</p>
+          </div>
+          <div>
+            <p>hello</p>
+          </div>
+          <div>
+            <p>hello</p>
+          </div>
         </section>
-        <section class="super-section">
+
+        <section id="team" class="super-section">
           <p class="section-title">TEAM</p>
+          <div class="layout horizontal">
+            <p>t1</p>
+            <p>t2</p>
+            <p>t3</p>
+          </div>
         </section>
       </div>
     </div>
