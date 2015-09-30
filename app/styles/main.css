@@ -13,28 +13,9 @@ body {
   color: white;
 }
 
-.header-back {
-  /*height: 75px;*/
-  width: 100%;
-  margin-top: 25px;
-  padding-top: 25px;
-  padding-bottom: 25px;
-  background-color: rgba(154, 154, 154, 0.15);
-}
-
-.header-content {
-  width: 80%;
-  margin: 0 auto;
-}
-
 .main-content {
   width: 80%;
   margin: 0 auto;
-}
-
-.supercore-logo {
-  max-width: 192px;
-  width: 90%;
 }
 
 .featured-game {
@@ -47,27 +28,14 @@ body {
 paper-material.featured-game {
   padding: 0px;
   width: 29%;
-  /*margin: 1%;*/
-}
-
-section.super-section {
-  /*margin: 2%;*/
 }
 
 .twitter-logo {
-  /*width: 256px;*/
   max-width: 64px;
   width: 50%;
 }
 
-p.section-title {
-  margin-left: 0px;
-  color: white;
-  font-size: 1.4em;
-  font-weight: 700;
-  background-color: rgb(85, 53, 58);
-  text-shadow: rgba(38, 36, 36, 0.5) 0px -1px 0px;
-}
+
 
 #latest {
   width: 100%;
@@ -92,24 +60,4 @@ a:link.light-link {
 a:hover.light-link {
   color: white;
   text-decoration: none;
-}
-
-a.section-title-link{
-  color: white;
-  text-decoration: none;
-  /*font-style: italic;*/
-  font-weight: normal;
-  font-size: 0.8em;
-  margin-left: 2%;
-  opacity: 0.7;
-}
-
-a.section-title-link:hover{
-  color: white;
-  text-decoration: none;
-  /*font-style: italic;*/
-  font-weight: normal;
-  font-size: 0.8em;
-  margin-left: 2%;
-  opacity: 1;
 }

@@ -1,0 +1,80 @@
+<!--
+@license
+Copyright (c) 2015 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<dom-module id="super-header">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+
+      .header-back {
+        /*height: 75px;*/
+        width: 100%;
+        margin-top: 25px;
+        padding-top: 25px;
+        padding-bottom: 25px;
+        background-color: rgba(154, 154, 154, 0.15);
+      }
+
+      .header-content {
+        width: 80%;
+        margin: 0 auto;
+      }
+
+      .supercore-logo {
+        max-width: 192px;
+        width: 90%;
+      }
+
+    </style>
+    <div class="flex header-back">
+      <div class="flex header-content layout horizontal center">
+        <div class="flex  layout horizontal center">
+          <div class="logo-box">
+            <img class="supercore-logo" src="../../images/supercore3.png"></img>
+          </div>
+          <paper-tabs selected="0">
+            <paper-tab><a href="#games" class="light-link horizontal center-center layout">Games</a></paper-tab>
+            <paper-tab><a href="#latest" class="light-link horizontal center-center layout">Blog</a></paper-tab>
+            <paper-tab><a href="#team" class="light-link horizontal center-center layout">Team</a></paper-tab>
+          </paper-tabs>
+        </div>
+
+        <div class="flex social-box layout horizontal end-justified">
+          <a class="layout vertical center light-link" href="https://twitter.com/super__core">
+            <img class="twitter-logo" src="../../images/twitter.svg"></img>
+            <p class="header-link">@supercore</p>
+          </a>
+        </div>
+      </div>
+    </div>
+  </template>
+
+  <script>
+    (function () {
+      'use strict';
+
+      Polymer({
+        is: 'super-header',
+        properties: {
+          items: {
+            type: Array,
+            notify: true,
+          }
+        },
+        ready: function() {
+        }
+      });
+    })();
+  </script>
+
+</dom-module>

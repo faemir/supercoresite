@@ -38,53 +38,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <span id="browser-sync-binding"></span>
   <template is="dom-bind" id="app">
     <div id="main-container" class="layout vertical">
-      <div class="flex header-back">
-        <div class="flex header-content layout horizontal center">
-          <div class="flex  layout horizontal center">
-            <div class="logo-box">
-              <img class="supercore-logo" src="images/supercore3.png"></img>
-            </div>
-            <paper-tabs selected="0">
-              <paper-tab><a href="#games" class="light-link horizontal center-center layout">Games</a></paper-tab>
-              <paper-tab><a href="#latest" class="light-link horizontal center-center layout">Blog</a></paper-tab>
-              <paper-tab><a href="#team" class="light-link horizontal center-center layout">Team</a></paper-tab>
-            </paper-tabs>
-          </div>
-
-          <div class="flex social-box layout horizontal end-justified">
-            <a class="layout vertical center light-link" href="https://twitter.com/super__core">
-              <img class="twitter-logo" src="images/twitter.svg"></img>
-              <p class="header-link">@supercore</p>
-            </a>
-          </div>
-        </div>
-      </div>
+      <super-header></super-header>
       <div class="main-content">
 
         <section id="games" class="super-section start-layout vertical center">
-          <p class="section-title">
-            <svg height="10" width="10">
-              <circle cx="7" cy="7" r="7" stroke-width="3" fill="red" />
-            </svg> FEATURED GAMES <a class="section-title-link" href="http://supercore.itch.io/">more supercore games @ itch.io<img width="16" src="images/superarrow.png"></img></a></p>
-          <div class="owl-carousel layout horizontal wrap center-center">
-            <img class="featured-game" src="images/brain.gif"></img>
-            <video class="featured-game" id="video" autoplay="autoplay" muted="muted" preload="auto" loop="loop" poster="//i.imgur.com/Is5Y5zrh.jpg">
-              <source src="//i.imgur.com/Is5Y5zr.webm" type="video/webm">
-              <source src="//i.imgur.com/Is5Y5zr.mp4" type="video/mp4">
-              <object type="application/x-shockwave-flash" data="//s.imgur.com/include/flash/gifplayer.swf?imgur_video=http://i.imgur.com/Is5Y5zr.mp4&amp;imgur_width=854&amp;imgur_height=480&amp;imgur_url=http://imgur.com/Is5Y5zr" height="480" width="854">
-                <param name="movie" value="//s.imgur.com/include/flash/gifplayer.swf?imgur_video=http://i.imgur.com/Is5Y5zr.mp4&amp;imgur_width=854&amp;imgur_height=480&amp;imgur_url=http://imgur.com/Is5Y5zr">
-                <param name="allowscriptaccess" value="never">
-                <param name="flashvars" value="height=480&amp;width=854">
-                <param name="width" value="480">
-                <param name="height" value="854">
-                <param name="version" value="0">
-                <param name="scale" value="scale">
-                <param name="salign" value="tl">
-                <param name="wmode" value="opaque">
-              </object>
-            </video>
-            <img class="featured-game" src="images/redlines.png"></img>
-          </div>
+          <super-games></super-games>
         </section>
         <section id="latest" class="super-section">
           <p class="section-title">
