@@ -53,12 +53,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       <svg height="10" width="10">
         <circle cx="7" cy="7" r="7" stroke-width="3" fill="red" />
       </svg>
-      <h2>FEATURED GAMES</h2>
-
-      <a hidden$="{{_computeLinkHidden(linktext)}}" class="section-title-link" href="http://supercore.itch.io/">
-        <span>{{linktext}}</span>
-        <text></text>
-        <link></link>
+      <content select="h2"></content>
+      <a hidden$="{{_computeLinkHidden(linkText, linkUrl)}}" class="section-title-link" href="{{linkUrl}}">
+        <span>{{linkText}}</span>
         <img width="16" src="../../images/superarrow.png"></img>
       </a>
 
@@ -73,8 +70,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       Polymer({
         is: 'super-section-title',
-        _computeLinkHidden: function(linktext) {
-          if (this.linktext != 'None') {
+        _computeLinkHidden: function(linkText, linkUrl) {
+          if (this.linkText != 'None' && this.linkUrl != 'None') {
             return false;
           } else {
             return true;
@@ -82,7 +79,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         },
 
         properties: {
-          linktext: {
+          linkText: {
+            type: String,
+            notify: true,
+            value: 'None'
+          },
+          linkUrl: {
             type: String,
             notify: true,
             value: 'None'

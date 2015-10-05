@@ -42,22 +42,34 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       <div class="main-content">
 
         <section id="games" class="super-section start-layout vertical center">
-          <super-games></super-games>
+          <super-section-title link-text="more supercore games @ itch.io" link-url="http://supercore.itch.io/">
+            <h2>FEATURED GAMES</h2>
+          </super-section-title>
+          <super-games>
+            <img class="featured-game" src="../../images/brain.gif"></img>
+            <video class="featured-game" id="video" autoplay="autoplay" muted="muted" preload="auto" loop="loop" poster="//i.imgur.com/Is5Y5zrh.jpg">
+              <source src="//i.imgur.com/Is5Y5zr.webm" type="video/webm">
+              <source src="//i.imgur.com/Is5Y5zr.mp4" type="video/mp4">
+              <object type="application/x-shockwave-flash" data="//s.imgur.com/include/flash/gifplayer.swf?imgur_video=http://i.imgur.com/Is5Y5zr.mp4&amp;imgur_width=854&amp;imgur_height=480&amp;imgur_url=http://imgur.com/Is5Y5zr" height="480" width="854">
+                <param name="movie" value="//s.imgur.com/include/flash/gifplayer.swf?imgur_video=http://i.imgur.com/Is5Y5zr.mp4&amp;imgur_width=854&amp;imgur_height=480&amp;imgur_url=http://imgur.com/Is5Y5zr">
+                <param name="allowscriptaccess" value="never">
+                <param name="flashvars" value="height=480&amp;width=854">
+                <param name="width" value="480">
+                <param name="height" value="854">
+                <param name="version" value="0">
+                <param name="scale" value="scale">
+                <param name="salign" value="tl">
+                <param name="wmode" value="opaque">
+              </object>
+            </video>
+            <img class="featured-game" src="../../images/redlines.png"></img>
+          </super-games>
         </section>
         <section id="latest" class="super-section">
-          <p class="section-title">
-            <svg height="10" width="10">
-              <circle cx="7" cy="7" r="7" stroke-width="3" fill="red" />
-            </svg> LATEST <a class="section-title-link" href="#">check out our blog <img width="16" src="images/superarrow.png"></a></p>
-          <div>
-            <p>Placeholder #1</p>
-          </div>
-          <div>
-            <p>Placeholder #2</p>
-          </div>
-          <div>
-            <p>Placeholder #3</p>
-          </div>
+          <super-section-title link-text="check out our blog" link-url="#">
+            <h2>BLOG LATEST</h2>
+          </super-section-title>
+          <super-blog></super-blog>
         </section>
 
         <section id="team" class="super-section">

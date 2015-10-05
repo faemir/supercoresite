@@ -9,17 +9,22 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 -->
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 
-<dom-module id="super-games">
+<dom-module id="super-blog">
   <template>
     <style>
       :host {
         display: block;
       }
     </style>
-    <div class="owl-carousel layout horizontal wrap center-center">
-      <content select="img"></content>
-      <content select="video"></content>
+    <div class="layout vertical">
+      <template is="dom-repeat" items="[[ajaxResponse.posts]]">
+        <div class="flex">
+          <a href="[[item.url]]"><h2>[[item.title]]</h2></a><span>[[item.author]]</span>
+          <p>[[item.body]]</p>
+        </div>
+      </template>
     </div>
+    <iron-ajax auto=true url="http://192.168.1.142:4000/blog-posts" handle-as="json" headers='{"Accept": "application/json"}' debounce-duration="300" last-response="{{ajaxResponse}}"></iron-ajax>
   </template>
 
   <script>
@@ -27,7 +32,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       'use strict';
 
       Polymer({
-        is: 'super-games',
+        is: 'super-blog',
         properties: {},
         ready: function() {}
       });
