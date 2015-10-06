@@ -13,9 +13,13 @@ body {
   color: white;
 }
 
-.main-content {
+.center-content {
   width: 80%;
   margin: 0 auto;
+}
+
+.super-content{
+  margin-bottom: 20px;
 }
 
 .featured-game {
@@ -35,10 +39,10 @@ paper-material.featured-game {
   width: 50%;
 }
 
-
-
-#latest {
-  width: 100%;
+.games-content{
+  background-color: rgba(154, 154, 154, 0.15);
+  /*background-image: url("../images/superpaper.jpg");*/
+  padding-bottom: 20px;
 }
 
 .header-link {

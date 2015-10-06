@@ -39,9 +39,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <template is="dom-bind" id="app">
     <div id="main-container" class="layout vertical">
       <super-header></super-header>
-      <div class="main-content">
 
-        <section id="games" class="super-section start-layout vertical center">
+      <div class="games-content super-content">
+        <section id="games" class="center-content super-section start-layout vertical center">
           <super-section-title link-text="more supercore games @ itch.io" link-url="http://supercore.itch.io/">
             <h2>FEATURED GAMES</h2>
           </super-section-title>
@@ -65,29 +65,30 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             <img class="featured-game" src="../../images/redlines.png"></img>
           </super-games>
         </section>
-        <section id="latest" class="super-section">
-          <super-section-title link-text="check out our blog" link-url="#">
-            <h2>BLOG LATEST</h2>
+      </div>
+
+      <div class="blog-content super-content">
+        <section id="latest" class="center-content super-section start-layout vertical center">
+          <super-section-title link-text="check out supercore's blog" link-url="#">
+            <h2>LATEST FROM OUR BLOG</h2>
           </super-section-title>
           <super-blog></super-blog>
         </section>
+      </div>
 
-        <section id="team" class="super-section">
-          <p class="section-title">
-            <svg height="10" width="10">
-              <circle cx="7" cy="7" r="7" stroke-width="3" fill="red" />
-            </svg> TEAM</p>
+      <div class="team-content super-content">
+        <section id="team" class="center-content super-section start-layout vertical center">
+          <super-section-title>
+            <h2>TEAM</h2>
+          </super-section-title>
           <div class="layout horizontal">
-            <p>t1</p>
-            <p>t2</p>
-            <p>t3</p>
+            <super-person>t1</super-person>
+            <super-person>t2</super-person>
+            <super-person>t3</super-person>
           </div>
         </section>
       </div>
     </div>
-
-
-
   </template>
   <script src="bower_components/jquery/dist/jquery.min.js"></script>
   <script src="bower_components/owl.carousel/dist/owl.carousel.min.js"></script>

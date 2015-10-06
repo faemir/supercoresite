@@ -1,12 +1,3 @@
-<!--
-@license
-Copyright (c) 2015 The Polymer Project Authors. All rights reserved.
-This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
-The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
-The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
-Code distributed by Google as part of the polymer project is also
-subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
--->
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 
 <dom-module id="super-blog">
@@ -15,16 +6,74 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       :host {
         display: block;
       }
+
+      .blog-post {
+        border-bottom: 1px solid white;
+      }
+
+      h2 {
+        padding: 0px;
+        margin: 0px;
+      }
+
+      a {
+        color: white;
+        text-decoration: none;
+        margin: 10px;
+        padding: 15px;
+        max-width: 900px;
+        transition: all 0.5s ease;
+      }
+
+      a:hover {
+        color: rgb(230, 37, 71);
+        text-decoration: none;
+        border-left: 1px solid white;
+      }
+
+      .author {
+        margin-left: 5px;
+        font-style: italic;
+      }
+
+      .dummy-post{
+        height: 150px;
+      }
+
+      paper-progress {
+        display: block;
+        width: 100%;
+        /*margin: 20px 0;*/
+        --paper-progress-active-color: rgb(230, 37, 71);
+        --paper-progress-container-color: rgba(#ffffff, 0);
+        --paper-progress-transition-duration: 0.8s;
+        --paper-progress-transition-timing-function: ease;
+        --paper-progress-transition-transition-delay: 0.5s;
+      }
     </style>
-    <div class="layout vertical">
-      <template is="dom-repeat" items="[[ajaxResponse.posts]]">
-        <div class="flex">
-          <a href="[[item.url]]"><h2>[[item.title]]</h2></a><span>[[item.author]]</span>
-          <p>[[item.body]]</p>
+    <div class="layout wrap horizontal">
+      <template is="dom-if" if="{{postLoad}}">
+        <div class="layout flex">
+          <paper-progress indeterminate="true"></paper-progress>
+          <div class="dummy-post"></div>
+          <div class="dummy-post"></div>
+          <div class="dummy-post"></div>
         </div>
       </template>
+      <template is="dom-repeat" items="[[ajaxResponse.posts]]">
+        <a class="" href="[[item.url]]">
+          <dev class="blog-post">
+            <div class="layout horizontal center">
+              <h2>[[item.title]]</h2>
+              <span class="author">by</span>
+              <span class="author">[[item.author]]</span>
+            </div>
+            <p>[[item.body]]</p>
+          </dev>
+        </a>
+      </template>
     </div>
-    <iron-ajax auto=true url="http://192.168.1.142:4000/blog-posts" handle-as="json" headers='{"Accept": "application/json"}' debounce-duration="300" last-response="{{ajaxResponse}}"></iron-ajax>
+    <iron-ajax auto=true url="http://supercore.tanbouz.com/blog-posts" loading="{{postLoad}}" handle-as="json" headers='{"Accept": "application/json"}' debounce-duration="300" last-response="{{ajaxResponse}}"></iron-ajax>
   </template>
 
   <script>
@@ -33,7 +82,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       Polymer({
         is: 'super-blog',
-        properties: {},
+        properties: {
+
+        },
         ready: function() {}
       });
     })();

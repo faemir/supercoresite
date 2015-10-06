@@ -1,0 +1,38 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<dom-module id="super-person">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+
+      .person-card{
+        height: 100px;
+        width: 100px;
+        background-color: rgba(158, 158, 158, 0.24);
+        border-radius: 50%;
+        margin: 10px;
+      }
+
+    </style>
+    <div class="person-card layout wrap horizontal">
+
+    </div>
+  </template>
+
+  <script>
+    (function() {
+      'use strict';
+
+      Polymer({
+        is: 'super-person',
+        properties: {
+
+        },
+        ready: function() {}
+      });
+    })();
+  </script>
+
+</dom-module>
