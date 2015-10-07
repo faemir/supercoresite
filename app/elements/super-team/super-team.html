@@ -1,0 +1,64 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<dom-module id="super-team">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+
+      .team-card {
+        height: 100px;
+        width: 100px;
+        background-color: rgba(158, 158, 158, 0.24);
+        border-radius: 50%;
+        margin: 10px;
+      }
+    </style>
+    <div class="layout wrap horizontal">
+      <template is="dom-repeat" items="{{members}}">
+        <span class="team-card">[[item]]</span>
+      </template>
+    </div>
+
+    <content id="content" select="member"></content>
+
+  </template>
+
+  <script>
+    (function() {
+      'use strict';
+
+      Polymer({
+        is: 'super-team',
+        properties: {
+          user: String,
+          members: {
+            type: Array,
+            notify: true,
+            value: function() {
+              return [];
+            }
+          }
+        },
+        ready: function() {
+          var that = this;
+          console.log(this.members);
+
+          window.addEventListener('WebComponentsReady', function() {
+            var nodes = Polymer.dom(that.$.content).getDistributedNodes();
+            nodes.forEach(function(node) {
+              console.log(node.getAttribute("name"), that);
+              that.push('members', node.getAttribute("name"))
+                // var route = node.getAttribute("route");
+                // var name = node.getAttribute("name");
+                // var path = node.getAttribute("path");
+            })
+            console.log(that.members)
+          });
+        }
+      });
+    })();
+  </script>
+
+</dom-module>
