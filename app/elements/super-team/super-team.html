@@ -7,24 +7,9 @@
         display: block;
       }
     </style>
-    <div class="layout wrap horizontal center-center">
-      <template is="dom-repeat" items="{{members}}">
-        <super-member on-click="handleClick" style$="[[classColor()]]">
-          <template is="dom-if" if="{{checkAvatar(item.avatar)}}">
-            <img src="[[item.avatar]]"></img>
-          </template>
-          <template is="dom-if" if="{{!checkAvatar(item.avatar)}}">
-            <img src="../../images/supercore-person.png"></img>
-          </template>
-
-          <name>[[item.name]]</name>
-          <bio>[[item.bio]]</bio>
-        </super-member>
-      </template>
+    <div id="team" class="layout wrap horizontal center-center" on-click="handleClick">
+      <content id="content" select="super-member"></content>
     </div>
-
-    <content id="content" select="member"></content>
-
   </template>
 
   <script>
@@ -43,12 +28,10 @@
             }
           }
         },
-        card_colors: ['rgba(58, 199, 137, 0.4)', 'rgba(78, 138, 207, 0.4)', 'rgba(175, 194, 151, 0.4)', 'rgba(127, 87, 150, 0.4)'],
-        card_color_count: 0,
-        card_numbers: 0,
+        cardColors: ['rgba(58, 199, 137, 0.2)', 'rgba(78, 138, 207, 0.2)', 'rgba(175, 194, 151, 0.2)', 'rgba(127, 87, 150, 0.2)'],
+        cardColorsCount: 0,
         classColor: function() {
-          return 'background-color: ' + this.card_colors[this.card_color_count++ % this.card_colors.length]
-            // return 'avatar';
+          return this.cardColors[this.cardColorsCount++ % this.cardColors.length];
         },
         shuffle: function(array) {
           var currentIndex = array.length,
@@ -69,58 +52,45 @@
           return array;
         },
         created: function() {
-          this.card_colors = this.shuffle(this.card_colors);
+          this.cardColors = this.shuffle(this.cardColors);
         },
 
         ready: function() {
           var that = this;
-          this.card_numbers = Polymer.dom(this.$.content).getDistributedNodes().length;
+          var nodes = Polymer.dom(this.$.content).getDistributedNodes();
 
-          window.addEventListener('WebComponentsReady', function() {
-            var tmp_array = []
-            var nodes = Polymer.dom(that.$.content).getDistributedNodes();
-
-            nodes.forEach(function(node) {
-              tmp_array.push({
-                'name': node.getAttribute("name"),
-                'avatar': node.getAttribute("avatar"),
-                'bio': node.getAttribute("bio")
-              });
-            })
-
-            tmp_array = that.shuffle(tmp_array);
-
-            tmp_array.forEach(function(node) {
-              that.push('members', node);
-            })
-          });
-        },
-        checkAvatar: function(avatar) {
-          if (avatar != '') {
-            return true;
-          } else {
-            return false;
+          var shuffled = [];
+          for (var i = 0; i < nodes.length; ++i) {
+            shuffled.push(i);
           }
 
+          shuffled = this.shuffle(shuffled);
+
+          nodes.forEach(function(node, i) {
+            node.style.order = shuffled[i];
+            node.style.backgroundColor = that.classColor();
+          });
         },
-        handleClick: function(e, detail) {
-          var status = e.target.closest('super-member').isHidden;
+        handleClick: function(e) {
+          if (e.target.hasOwnProperty('dataHost') && e.target.dataHost.nodeName === 'SUPER-MEMBER') {
+            var status = e.target.closest('super-member').isHidden;
 
-          if (status === 'undefined') {
-            e.target.closest('super-member').isHidden = false;
-            status = false;
-          };
+            if (status === 'undefined') {
+              e.target.closest('super-member').isHidden = false;
+              status = false;
+            }
 
-          if (!status) {
-            var nodes = this.querySelectorAll('super-member');
-            for (var i = 0; i < nodes.length; ++i) {
-              if(nodes[i].isHidden){
-                nodes[i].isHidden = false;
-              };
-            };
-          };
+            if (!status) {
+              var nodes = this.querySelectorAll('super-member');
+              for (var i = 0; i < nodes.length; ++i) {
+                if (nodes[i].isHidden) {
+                  nodes[i].isHidden = false;
+                }
+              }
+            }
 
-          e.target.closest('super-member').isHidden = !status;
+            e.target.closest('super-member').isHidden = !status;
+          }
         }
 
       });

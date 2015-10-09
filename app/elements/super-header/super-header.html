@@ -31,16 +31,18 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
 
       .supercore-logo {
+        margin-left: 25px;
         max-width: 192px;
         width: 90%;
       }
-
     </style>
     <div class="flex header-back">
       <div class="flex header-content layout horizontal center">
         <div class="flex  layout horizontal center">
           <div class="logo-box">
-            <img class="supercore-logo" src="../../images/supercore3.png"></img>
+            <a href="http://supercore.co.uk">
+              <img class="supercore-logo" src="../../images/supercore3.png"></img>
+            </a>
           </div>
           <!-- <paper-tabs selected="0">
             <paper-tab><a href="#games" class="light-link horizontal center-center layout">Games</a></paper-tab>
@@ -60,7 +62,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   </template>
 
   <script>
-    (function () {
+    (function() {
       'use strict';
 
       Polymer({
@@ -71,8 +73,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             notify: true,
           }
         },
-        ready: function() {
-        }
+        ready: function() {}
       });
     })();
   </script>

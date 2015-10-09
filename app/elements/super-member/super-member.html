@@ -12,29 +12,48 @@
         height: 130px;
         width: 300px;
         padding: 0px;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        cursor: default;
+      }
+
+      paper-material {
+        border-radius: 3px;
+        border-bottom-right-radius: 14px;
       }
 
       .team-card {
         height: 100%;
-        width: 300px;
       }
 
       .card-img {
+        position: relative;
+        display: inline-block;
         height: 100%;
         width: 100px;
       }
 
+      .card-img:hover {
+        background-color: rgba(215, 215, 215, 0.04);
+      }
+
       .card-content {
-        padding-top: 15px;
-        padding-right: 5px;
+        background-color: rgba(215, 215, 215, 0.02);
+        padding: 5px 15px;
         width: 200px;
         overflow: hidden;
-        transition: all 0.3s ease;
+        transition: all 0.5s ease;
       }
 
       .hide-card {
+        position: absolute;
         opacity: 0;
-        transition: all 0.3s ease;
+        pointer-events: none;
+        cursor: default;
       }
 
       :host >::content name {
@@ -65,32 +84,70 @@
         text-decoration: none;
         transition: all 0.5s ease;
       }
+
+      #biocard {
+        /*position: absolute;*/
+      }
+
+      #linkscard {
+
+        top: 0px;
+        padding: 5px 15px;
+      }
+
+      #linkscard > .links-header {
+        font-size: 0.8em;
+        color: rgba(255, 255, 255, 0.74);
+        /*font-style: italic;*/
+        margin-bottom: 2px;
+        margin-left: -15px;
+      }
+
+      #linkscard >::content a {
+        color: rgb(221, 221, 221);
+        /*font-style: italic;*/
+        text-decoration: none;
+        transition: all 0.5s ease;
+      }
+
+      #linkscard >::content a:hover {
+        color: rgb(230, 37, 71);
+        text-decoration: none;
+        transition: all 0.5s ease;
+      }
     </style>
 
-    <div class="team-card layout horizontal">
-      <paper-ripple class="" recenters>
-      </paper-ripple>
-      <div class="card-img layout vertical center-center">
-        <content select="img"></content>
-        <content select="name"></content>
+    <paper-material elevation="0" class="team-card layout horizontal">
+      <a href="#" class="card-img layout vertical center-center">
+        <paper-ripple class="" recenters>
+        </paper-ripple>
+        <content select="img">
+          <img src="../../images/supercore-person.png"></img>
+        </content>
+        <content id="membername" select="name"></content>
+      </a>
+
+      <div class="card-content layout vertical center-justified">
+
+        <div id="biocard" class="hide-card">
+          <content select="bio"></content>
+        </div>
+
+        <div id="linkscard" class="layout vertical">
+          <template is="dom-if" if="{{hasLinks}}">
+            <div class="links-header">Find me on
+            </div>
+          </template>
+          <template is="dom-if" if="{{!hasLinks}}">
+            <div class="links-header">Nothing here :(
+            </div>
+          </template>
+          <content id="memberlinks" select="a"></content>
+        </div>
       </div>
-      <div class="card-content layout vertical">
-        <template is="dom-if" if="{{!isHidden}}">
-          <div id="biocard">
-            <content select="bio"></content>
-          </div>
-        </template>
-
-        <template is="dom-if" if="{{isHidden}}">
-          <div>hello
-            <!-- <p>HELLO!</p> -->
-          </div>
-        </template>
-
-      </div>
 
 
-    </div>
+    </paper-material>
 
   </template>
 
@@ -106,13 +163,28 @@
             observer: '_isHiddenChanged',
             notify: true,
             value: false
+          },
+          hasLinks: {
+            type: Boolean,
+            notify: true,
+            value: false
+          },
+          name: {
+            type: String
+          },
+        },
+        ready: function() {
+          this.name = Polymer.dom(this.$.membername).getDistributedNodes()[0].textContent;
+          if (Polymer.dom(this.$.memberlinks).getDistributedNodes().length > 0) {
+            this.hasLinks= true;
+          } else {
+            this.hasLinks= false;
           }
         },
-        ready: function() {},
         _isHiddenChanged: function() {
-          // this.toggleClass('hide-card', !Polymer.dom(this.$.biocard).classList.contains('hide-card'), this.$.biocard);
-        }
-
+          this.toggleClass('hide-card', !Polymer.dom(this.$.biocard).classList.contains('hide-card'), this.$.biocard);
+          this.toggleClass('hide-card', !Polymer.dom(this.$.linkscard).classList.contains('hide-card'), this.$.linkscard);
+        },
       });
     })();
   </script>
