@@ -1,0 +1,120 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<dom-module id="super-member">
+  <template>
+    <style>
+      :host {
+        position: relative;
+        display: inline-block;
+        margin: 10px;
+        border-radius: 3px;
+        border-bottom-right-radius: 14px;
+        height: 130px;
+        width: 300px;
+        padding: 0px;
+      }
+
+      .team-card {
+        height: 100%;
+        width: 300px;
+      }
+
+      .card-img {
+        height: 100%;
+        width: 100px;
+      }
+
+      .card-content {
+        padding-top: 15px;
+        padding-right: 5px;
+        width: 200px;
+        overflow: hidden;
+        transition: all 0.3s ease;
+      }
+
+      .hide-card {
+        opacity: 0;
+        transition: all 0.3s ease;
+      }
+
+      :host >::content name {
+        margin-top: 5px;
+        font-size: 1em;
+        font-weight: bold;
+        color: rgba(255, 255, 255, 1);
+      }
+
+      :host >::content bio {
+        font-size: 0.8em;
+        color: rgba(255, 255, 255, 0.74);
+      }
+
+      :host >::content img {
+        /*height: 64px;*/
+        height: auto;
+        width: 80%;
+        border-radius: 15px;
+      }
+
+      paper-ripple {
+        color: white;
+      }
+
+      a {
+        color: white;
+        text-decoration: none;
+        transition: all 0.5s ease;
+      }
+    </style>
+
+    <div class="team-card layout horizontal">
+      <paper-ripple class="" recenters>
+      </paper-ripple>
+      <div class="card-img layout vertical center-center">
+        <content select="img"></content>
+        <content select="name"></content>
+      </div>
+      <div class="card-content layout vertical">
+        <template is="dom-if" if="{{!isHidden}}">
+          <div id="biocard">
+            <content select="bio"></content>
+          </div>
+        </template>
+
+        <template is="dom-if" if="{{isHidden}}">
+          <div>hello
+            <!-- <p>HELLO!</p> -->
+          </div>
+        </template>
+
+      </div>
+
+
+    </div>
+
+  </template>
+
+  <script>
+    (function() {
+      'use strict';
+
+      Polymer({
+        is: 'super-member',
+        properties: {
+          isHidden: {
+            type: Boolean,
+            observer: '_isHiddenChanged',
+            notify: true,
+            value: false
+          }
+        },
+        ready: function() {},
+        _isHiddenChanged: function() {
+          // this.toggleClass('hide-card', !Polymer.dom(this.$.biocard).classList.contains('hide-card'), this.$.biocard);
+        }
+
+      });
+    })();
+  </script>
+
+</dom-module>

@@ -6,18 +6,20 @@
       :host {
         display: block;
       }
-
-      .team-card {
-        height: 100px;
-        width: 100px;
-        background-color: rgba(158, 158, 158, 0.24);
-        border-radius: 50%;
-        margin: 10px;
-      }
     </style>
-    <div class="layout wrap horizontal">
+    <div class="layout wrap horizontal center-center">
       <template is="dom-repeat" items="{{members}}">
-        <span class="team-card">[[item]]</span>
+        <super-member on-click="handleClick" style$="[[classColor()]]">
+          <template is="dom-if" if="{{checkAvatar(item.avatar)}}">
+            <img src="[[item.avatar]]"></img>
+          </template>
+          <template is="dom-if" if="{{!checkAvatar(item.avatar)}}">
+            <img src="../../images/supercore-person.png"></img>
+          </template>
+
+          <name>[[item.name]]</name>
+          <bio>[[item.bio]]</bio>
+        </super-member>
       </template>
     </div>
 
@@ -41,22 +43,86 @@
             }
           }
         },
+        card_colors: ['rgba(58, 199, 137, 0.4)', 'rgba(78, 138, 207, 0.4)', 'rgba(175, 194, 151, 0.4)', 'rgba(127, 87, 150, 0.4)'],
+        card_color_count: 0,
+        card_numbers: 0,
+        classColor: function() {
+          return 'background-color: ' + this.card_colors[this.card_color_count++ % this.card_colors.length]
+            // return 'avatar';
+        },
+        shuffle: function(array) {
+          var currentIndex = array.length,
+            temporaryValue, randomIndex;
+
+          // While there remain elements to shuffle...
+          while (0 !== currentIndex) {
+
+            // Pick a remaining element...
+            randomIndex = Math.floor(Math.random() * currentIndex);
+            currentIndex -= 1;
+
+            // And swap it with the current element.
+            temporaryValue = array[currentIndex];
+            array[currentIndex] = array[randomIndex];
+            array[randomIndex] = temporaryValue;
+          }
+          return array;
+        },
+        created: function() {
+          this.card_colors = this.shuffle(this.card_colors);
+        },
+
         ready: function() {
           var that = this;
-          console.log(this.members);
+          this.card_numbers = Polymer.dom(this.$.content).getDistributedNodes().length;
 
           window.addEventListener('WebComponentsReady', function() {
+            var tmp_array = []
             var nodes = Polymer.dom(that.$.content).getDistributedNodes();
+
             nodes.forEach(function(node) {
-              console.log(node.getAttribute("name"), that);
-              that.push('members', node.getAttribute("name"))
-                // var route = node.getAttribute("route");
-                // var name = node.getAttribute("name");
-                // var path = node.getAttribute("path");
+              tmp_array.push({
+                'name': node.getAttribute("name"),
+                'avatar': node.getAttribute("avatar"),
+                'bio': node.getAttribute("bio")
+              });
             })
-            console.log(that.members)
+
+            tmp_array = that.shuffle(tmp_array);
+
+            tmp_array.forEach(function(node) {
+              that.push('members', node);
+            })
           });
+        },
+        checkAvatar: function(avatar) {
+          if (avatar != '') {
+            return true;
+          } else {
+            return false;
+          }
+
+        },
+        handleClick: function(e, detail) {
+          var status = e.target.closest('super-member').isHidden;
+
+          if (status === 'undefined') {
+            e.target.closest('super-member').isHidden = false;
+            status = false;
+          };
+
+          if (!status) {
+            var nodes = this.querySelectorAll('super-member');
+            for (var i = 0; i < nodes.length; ++i) {
+              if(nodes[i].isHidden){
+                nodes[i].isHidden = false;
+              };
+            };
+          };
+
+          e.target.closest('super-member').isHidden = !status;
         }
+
       });
     })();
   </script>
