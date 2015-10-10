@@ -73,10 +73,10 @@
         },
         handleClick: function(e) {
           if (e.target.hasOwnProperty('dataHost') && e.target.dataHost.nodeName === 'SUPER-MEMBER') {
-            var status = e.target.closest('super-member').isHidden;
+            var status = e.target.dataHost.isHidden;
 
             if (status === 'undefined') {
-              e.target.closest('super-member').isHidden = false;
+              e.target.dataHost.isHidden =  false;
               status = false;
             }
 
@@ -88,8 +88,7 @@
                 }
               }
             }
-
-            e.target.closest('super-member').isHidden = !status;
+            e.target.dataHost.isHidden = !status;
           }
         }
 
