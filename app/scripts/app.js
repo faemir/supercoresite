@@ -35,8 +35,8 @@
   });
 
   // Scroll page to top and expand header
-  app.scrollPageToTop = function() {
-    document.getElementById('main-container').scrollTop = 0;
-  };
+  // app.scrollPageToTop = function() {
+  //   document.getElementById('main-container').scrollTop = 0;
+  // };
 
 })(document);
