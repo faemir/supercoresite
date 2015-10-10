@@ -20,7 +20,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         margin-left: 10px;
       }
 
-      a{
+      a {
         font-style: italic;
       }
 
@@ -75,11 +75,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       Polymer({
         is: 'super-section-title',
         _computeLinkHidden: function(linkText, linkUrl) {
-          if (this.linkText != 'None' && this.linkUrl != 'None') {
+          if (linkText !== 'None' && linkUrl !== 'None') {
             return false;
           } else {
             return true;
-          };
+          }
         },
 
         properties: {

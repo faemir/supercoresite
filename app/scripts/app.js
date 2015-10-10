@@ -1,4 +1,3 @@
-
 (function(document) {
   'use strict';
 
@@ -27,25 +26,13 @@
         600: {
           items: 3
         },
-        // 1000:{
-        //     items:5
-        // }
       }
     });
   });
 
-  // See https://github.com/Polymer/polymer/issues/1381
   window.addEventListener('WebComponentsReady', function() {
-    // imports are loaded and elements have been registered
-
 
   });
-
-
-  // Close drawer after menu item is selected if drawerPanel is narrow
-  app.onDataRouteClick = function() {
-
-  };
 
   // Scroll page to top and expand header
   app.scrollPageToTop = function() {
