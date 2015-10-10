@@ -84,6 +84,12 @@ gulp.task('images', function () {
     .pipe($g.size({title: 'images'}));
 });
 
+
+
+gulp.task('clear', function (done) {
+  return $g.cache.clearAll(done);
+});
+
 // Copy all files at the root level (app)
 gulp.task('copy', function () {
   var app = gulp.src([
@@ -265,6 +271,7 @@ gulp.task('serve:dist', ['default'], function () {
 gulp.task('default', ['clean'], function (cb) {
   // Uncomment 'cache-config' after 'rename-index' if you are going to use service workers.
   runSequence(
+    'clear',
     ['copy', 'styles'],
     'elements',
     ['jshint', 'images', 'fonts', 'html'],
