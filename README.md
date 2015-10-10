@@ -1,2 +1,0 @@
-# supercoresite
-supercore website

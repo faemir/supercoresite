@@ -1,0 +1,27 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<dom-module id="super-games">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+    <div class="owl-carousel layout horizontal wrap center-center">
+        <content select="a.featured-game"></content>
+    </div>
+  </template>
+
+  <script>
+    (function() {
+      'use strict';
+
+      Polymer({
+        is: 'super-games',
+        properties: {},
+        ready: function() {}
+      });
+    })();
+  </script>
+
+</dom-module>
