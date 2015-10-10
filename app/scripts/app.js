@@ -12,10 +12,14 @@
   app.addEventListener('dom-change', function() {
     // console.log('Our app is ready to rock!');
     $('.owl-carousel').owlCarousel({
-      stagePadding: 30,
+      stagePadding: 65,
       loop: true,
       margin: 10,
-      nav: true,
+      nav: false,
+      lazyLoad: true,
+      video: true,
+      animateOut: true,
+      animateIn: true,
       responsive: {
         0: {
           items: 1

@@ -68,8 +68,7 @@
         color: rgba(255, 255, 255, 0.74);
       }
 
-      :host >::content img {
-        /*height: 64px;*/
+      :host >::content img.avatar {
         height: auto;
         width: 80%;
         border-radius: 15px;
@@ -85,22 +84,17 @@
         transition: all 0.5s ease;
       }
 
-      #biocard {
-        /*position: absolute;*/
-      }
-
       #linkscard {
-
         top: 0px;
-        padding: 5px 15px;
+        padding: 5px 10px;
       }
 
       #linkscard > .links-header {
         font-size: 0.8em;
         color: rgba(255, 255, 255, 0.74);
-        /*font-style: italic;*/
+        font-style: italic;
         margin-bottom: 2px;
-        margin-left: -15px;
+        margin-left: -10px;
       }
 
       #linkscard >::content a {
@@ -115,32 +109,38 @@
         text-decoration: none;
         transition: all 0.5s ease;
       }
+
+      .nothing-here{
+        font-size: 0.8em;
+        color: rgba(255, 255, 255, 0.74);
+      }
     </style>
 
     <paper-material elevation="0" class="team-card layout horizontal">
       <a href="#" class="card-img layout vertical center-center">
         <paper-ripple class="" recenters>
         </paper-ripple>
-        <content select="img">
-          <img src="../../images/supercore-person.png"></img>
+        <content select="img.avatar">
+          <img class="avatar" src="../../images/supercore-person.png"></img>
         </content>
         <content id="membername" select="name"></content>
       </a>
 
-      <div class="card-content layout vertical center-justified">
+      <div class="card-content layout vertical">
 
-        <div id="biocard" class="hide-card">
-          <content select="bio"></content>
+        <div id="biocard" class="hide-card layout flex vertical center-justified">
+            <content select="bio"></content>
         </div>
 
         <div id="linkscard" class="layout vertical">
           <template is="dom-if" if="{{hasLinks}}">
-            <div class="links-header">Find me on
+            <div class="links-header">Contact
             </div>
           </template>
           <template is="dom-if" if="{{!hasLinks}}">
-            <div class="links-header">Nothing here :(
+            <div class="links-header">Contact
             </div>
+            <div class="nothing-here">Nothing here :(</div>
           </template>
           <content id="memberlinks" select="a"></content>
         </div>
@@ -176,9 +176,9 @@
         ready: function() {
           this.name = Polymer.dom(this.$.membername).getDistributedNodes()[0].textContent;
           if (Polymer.dom(this.$.memberlinks).getDistributedNodes().length > 0) {
-            this.hasLinks= true;
+            this.hasLinks = true;
           } else {
-            this.hasLinks= false;
+            this.hasLinks = false;
           }
         },
         _isHiddenChanged: function() {

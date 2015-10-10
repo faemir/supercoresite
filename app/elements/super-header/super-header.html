@@ -17,12 +17,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
 
       .header-back {
-        /*height: 75px;*/
         width: 100%;
         margin-top: 25px;
         padding-top: 25px;
         padding-bottom: 25px;
-        /*background-color: rgba(154, 154, 154, 0.15);*/
       }
 
       .header-content {
@@ -30,18 +28,42 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         margin: 0 auto;
       }
 
+      .logo-box{
+        margin-left: 4%;
+      }
+
       .supercore-logo {
-        margin-left: 25px;
         max-width: 192px;
         width: 90%;
       }
+
+      .twitter-logo {
+        max-width: 64px;
+        width: 50%;
+      }
+
+      .header-link {
+        color: rgba(255, 255, 255, 0.74);
+        margin: 4px;
+        padding: 0px;
+      }
+
+      .social-box{
+        margin-right: 4%;
+      }
+
+      :host a{
+        color: white;
+        text-decoration: none;
+      }
+
     </style>
     <div class="flex header-back">
       <div class="flex header-content layout horizontal center">
-        <div class="flex  layout horizontal center">
-          <div class="logo-box">
+        <div class="logo-box flex layout horizontal center">
+          <div class="">
             <a href="http://supercore.co.uk">
-              <img class="supercore-logo" src="../../images/supercore3.png"></img>
+              <img class="supercore-logo" src="../../images/supercore-logo.png"></img>
             </a>
           </div>
           <!-- <paper-tabs selected="0">

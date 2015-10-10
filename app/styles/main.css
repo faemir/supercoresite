@@ -29,39 +29,16 @@ body {
   box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12), 0px 3px 1px -2px rgba(0, 0, 0, 0.2);
 }
 
-paper-material.featured-game {
-  padding: 0px;
-  width: 29%;
-}
-
-.twitter-logo {
-  max-width: 64px;
-  width: 50%;
+a.featured-game{
+  color: white;
+  text-decoration: none;
 }
 
 .games-content{
   background-color: rgba(154, 154, 154, 0.15);
-  /*background-image: url("../images/superpaper.jpg");*/
   padding-bottom: 20px;
 }
 
-.header-link {
-  color: rgba(255, 255, 255, 0.74);
-  margin: 4px;
-  padding: 0px;
-}
-
-a:visited.light-link {
-  color: white;
-  text-decoration: none;
-}
-
-a:link.light-link {
-  color: white;
-  text-decoration: none;
-}
-
-a:hover.light-link {
-  color: white;
-  text-decoration: none;
+.text-indent{
+  margin-left: 4px;
 }
