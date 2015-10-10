@@ -13,6 +13,7 @@
   "undef": true,
   "unused": true,
   "newcap": false,
+  "jquery": true,
   "globals": {
     "wrap": true,
     "unwrap": true,

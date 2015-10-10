@@ -11,7 +11,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 // Include Gulp & tools we'll use
 var gulp = require('gulp');
-var $ = require('gulp-load-plugins')();
+var $g = require('gulp-load-plugins')();
 var del = require('del');
 var runSequence = require('run-sequence');
 var browserSync = require('browser-sync');
@@ -41,12 +41,12 @@ var styleTask = function (stylesPath, srcs) {
   return gulp.src(srcs.map(function(src) {
       return path.join('app', stylesPath, src);
     }))
-    .pipe($.changed(stylesPath, {extension: '.css'}))
-    .pipe($.autoprefixer(AUTOPREFIXER_BROWSERS))
+    .pipe($g.changed(stylesPath, {extension: '.css'}))
+    .pipe($g.autoprefixer(AUTOPREFIXER_BROWSERS))
     .pipe(gulp.dest('.tmp/' + stylesPath))
-    .pipe($.cssmin())
+    .pipe($g.cssmin())
     .pipe(gulp.dest('dist/' + stylesPath))
-    .pipe($.size({title: stylesPath}));
+    .pipe($g.size({title: stylesPath}));
 };
 
 // Compile and automatically prefix stylesheets
@@ -67,21 +67,21 @@ gulp.task('jshint', function () {
       'gulpfile.js'
     ])
     .pipe(reload({stream: true, once: true}))
-    .pipe($.jshint.extract()) // Extract JS from .html files
-    .pipe($.jshint())
-    .pipe($.jshint.reporter('jshint-stylish'))
-    .pipe($.if(!browserSync.active, $.jshint.reporter('fail')));
+    .pipe($g.jshint.extract()) // Extract JS from .html files
+    .pipe($g.jshint())
+    .pipe($g.jshint.reporter('jshint-stylish'))
+    .pipe($g.if(!browserSync.active, $g.jshint.reporter('fail')));
 });
 
 // Optimize images
 gulp.task('images', function () {
   return gulp.src('app/images/**/*')
-    .pipe($.cache($.imagemin({
+    .pipe($g.cache($g.imagemin({
       progressive: true,
       interlaced: true
     })))
     .pipe(gulp.dest('dist/images'))
-    .pipe($.size({title: 'images'}));
+    .pipe($g.size({title: 'images'}));
 });
 
 // Copy all files at the root level (app)
@@ -108,44 +108,44 @@ gulp.task('copy', function () {
     .pipe(gulp.dest('dist/sw-toolbox'));
 
   var vulcanized = gulp.src(['app/elements/elements.html'])
-    .pipe($.rename('elements.vulcanized.html'))
+    .pipe($g.rename('elements.vulcanized.html'))
     .pipe(gulp.dest('dist/elements'));
 
   return merge(app, bower, elements, vulcanized, swBootstrap, swToolbox)
-    .pipe($.size({title: 'copy'}));
+    .pipe($g.size({title: 'copy'}));
 });
 
 // Copy web fonts to dist
 gulp.task('fonts', function () {
   return gulp.src(['app/fonts/**'])
     .pipe(gulp.dest('dist/fonts'))
-    .pipe($.size({title: 'fonts'}));
+    .pipe($g.size({title: 'fonts'}));
 });
 
 // Scan your HTML for assets & optimize them
 gulp.task('html', function () {
-  var assets = $.useref.assets({searchPath: ['.tmp', 'app', 'dist']});
+  var assets = $g.useref.assets({searchPath: ['.tmp', 'app', 'dist']});
 
   return gulp.src(['app/**/*.html', '!app/{elements,test}/**/*.html'])
     // Replace path for vulcanized assets
-    .pipe($.if('*.html', $.replace('elements/elements.html', 'elements/elements.vulcanized.html')))
+    .pipe($g.if('*.html', $g.replace('elements/elements.html', 'elements/elements.vulcanized.html')))
     .pipe(assets)
     // Concatenate and minify JavaScript
-    .pipe($.if('*.js', $.uglify({preserveComments: 'some'})))
+    .pipe($g.if('*.js', $g.uglify({preserveComments: 'some'})))
     // Concatenate and minify styles
     // In case you are still using useref build blocks
-    .pipe($.if('*.css', $.cssmin()))
+    .pipe($g.if('*.css', $g.cssmin()))
     .pipe(assets.restore())
-    .pipe($.useref())
+    .pipe($g.useref())
     // Minify any HTML
-    .pipe($.if('*.html', $.minifyHtml({
+    .pipe($g.if('*.html', $g.minifyHtml({
       quotes: true,
       empty: true,
       spare: true
     })))
     // Output files
     .pipe(gulp.dest('dist'))
-    .pipe($.size({title: 'html'}));
+    .pipe($g.size({title: 'html'}));
 });
 
 // Polybuild will take care of inlining HTML imports,
@@ -163,7 +163,7 @@ gulp.task('vulcanize', function () {
 // Rename Polybuild's index.build.html to index.html
 gulp.task('rename-index', function () {
   gulp.src('dist/index.build.html')
-    .pipe($.rename('index.html'))
+    .pipe($g.rename('index.html'))
     .pipe(gulp.dest('dist/'));
   return del(['dist/index.build.html']);
 });
