@@ -19,6 +19,11 @@
         -ms-user-select: none;
         user-select: none;
         cursor: default;
+        border: 2px solid white;
+      }
+
+      :host:hover {
+        border: 2px solid rgba(230, 37, 71, 0.65);
       }
 
       paper-material {
@@ -38,11 +43,12 @@
       }
 
       .card-img:hover {
-        background-color: rgba(215, 215, 215, 0.04);
+        background-color: rgba(255, 255, 255, 0);
+
       }
 
       .card-content {
-        background-color: rgba(215, 215, 215, 0.02);
+        /*background-color: rgba(215, 215, 215, 0.02);*/
         padding: 5px 15px;
         width: 200px;
         overflow: hidden;
@@ -53,19 +59,19 @@
         position: absolute;
         opacity: 0;
         pointer-events: none;
-        cursor: default;
+        /*cursor: default;*/
       }
 
       :host >::content name {
         margin-top: 5px;
         font-size: 1em;
         font-weight: bold;
-        color: rgba(255, 255, 255, 1);
+        color: #55353A;
       }
 
       :host >::content bio {
-        font-size: 0.8em;
-        color: rgba(255, 255, 255, 0.74);
+        font-size: 0.9em;
+        color: rgba(85, 53, 58, 0.91);
       }
 
       :host >::content img.avatar {
@@ -75,30 +81,43 @@
       }
 
       paper-ripple {
-        color: white;
+        color: #55353A;
+        z-index: 1;
+        cursor: pointer; cursor: hand;
       }
 
-      a {
+      ::content:host a {
+        display: table;
+        font-size: 1em;
+        color: #55353A;
+        text-decoration: none;
+        transition: all 0.1s ease;
+      }
+
+      ::content:host a:hover {
+        display: table;
+        font-size: 1em;
         color: white;
         text-decoration: none;
-        transition: all 0.5s ease;
+        transition: all 0.1s ease;
       }
 
       #linkscard {
+        z-index: 10;
         top: 0px;
         padding: 5px 10px;
       }
 
       #linkscard > .links-header {
-        font-size: 0.8em;
-        color: rgba(255, 255, 255, 0.74);
+        font-size: 1em;
+        color: #55353A;
         font-style: italic;
         margin-bottom: 2px;
         margin-left: -10px;
       }
 
       #linkscard >::content a {
-        color: rgb(221, 221, 221);
+        color: #55353A;
         text-decoration: none;
         transition: all 0.5s ease;
       }
@@ -109,16 +128,16 @@
         transition: all 0.5s ease;
       }
 
-      .nothing-here{
+      .nothing-here {
         font-size: 0.8em;
-        color: rgba(255, 255, 255, 0.74);
+        color: #55353A;
       }
     </style>
 
     <paper-material elevation="0" class="team-card layout horizontal">
+
       <a href="#" class="card-img layout vertical center-center">
-        <paper-ripple class="" recenters>
-        </paper-ripple>
+
         <content select="img.avatar">
           <img class="avatar" src="../../images/supercore-person.png"></img>
         </content>
@@ -126,9 +145,10 @@
       </a>
 
       <div class="card-content layout vertical">
-
+        <paper-ripple class="" recenters>
+        </paper-ripple>
         <div id="biocard" class="hide-card layout flex vertical center-justified">
-            <content select="bio"></content>
+          <content select="bio"></content>
         </div>
 
         <div id="linkscard" class="layout vertical">
