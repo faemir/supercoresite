@@ -61,7 +61,7 @@
         </div>
       </template>
       <template is="dom-repeat" items="[[ajaxResponse.posts]]">
-        <a class="" href="[[item.url]]">
+        <a class="" href$="[[item.url]]">
           <dev class="blog-post">
             <div class="layout horizontal center">
               <h2>[[item.title]]</h2>
@@ -73,7 +73,7 @@
         </a>
       </template>
     </div>
-    <iron-ajax auto=true url="http://supercore.tanbouz.com/blog-posts" loading="{{postLoad}}" handle-as="json" headers='{"Accept": "application/json"}' debounce-duration="300" last-response="{{ajaxResponse}}"></iron-ajax>
+    <iron-ajax auto=true url="http://supercore.co.uk:4040/blog-posts" loading="{{postLoad}}" handle-as="json" headers='{"Accept": "application/json"}' debounce-duration="300" last-response="{{ajaxResponse}}"></iron-ajax>
   </template>
 
   <script>
