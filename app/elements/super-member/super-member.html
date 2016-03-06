@@ -21,6 +21,7 @@
         user-select: none;
         cursor: default;
         border: 2px solid white;
+        background-color: rgba(255, 255, 255, 0.68);
       }
 
       :host:hover {
@@ -48,18 +49,11 @@
       }
 
       .card-content {
-        /*background-color: rgba(215, 215, 215, 0.02);*/
         padding: 5px 15px;
         width: 200px;
         overflow: hidden;
         transition: all 0.5s ease;
       }
-
-      /*.hide-card {
-        position: absolute;
-        opacity: 0;
-        pointer-events: none;
-      }*/
 
       .nick {
         margin-top: 5px;
@@ -73,105 +67,28 @@
         color: rgba(85, 53, 58, 0.91);
       }
 
-      /*:host >::content img.avatar {
+      img.avatar {
         height: 64px;
         width: 64px;
         border-radius: 15px;
-      }*/
-
-      /*paper-ripple {
-        color: #55353A;
-        z-index: 1;
-        cursor: pointer;
-        cursor: hand;
-      }*/
-
-      /*::content:host a {
-        display: table;
-        font-size: 1em;
-        color: #55353A;
-        text-decoration: none;
-        transition: all 0.1s ease;
       }
-
-      ::content:host a:hover {
-        display: table;
-        font-size: 1em;
-        color: white;
-        text-decoration: none;
-        transition: all 0.1s ease;
-      }
-
-      #linkscard {
-        z-index: 10;
-        top: 0px;
-        padding: 5px 10px;
-      }
-
-      #linkscard > .links-header {
-        font-size: 1em;
-        color: #55353A;
-        font-style: italic;
-        margin-bottom: 2px;
-        margin-left: -10px;
-      }
-
-      #linkscard >::content a {
-        color: #55353A;
-        text-decoration: none;
-        transition: all 0.5s ease;
-      }
-
-      #linkscard >::content a:hover {
-        color: rgb(230, 37, 71);
-        text-decoration: none;
-        transition: all 0.5s ease;
-      }
-
-      .nothing-here {
-        font-size: 0.8em;
-        color: #55353A;
-      }*/
     </style>
 
     <paper-material elevation="0"
       class="team-card layout horizontal">
 
-      <a href="#"
-        class="card-img layout vertical center-center">
+      <div class="card-img layout vertical center-center">
         <img class="avatar"
           src="[[avatar]]"></img>
         <span class="nick">[[nick]]</span>
-        <!-- <content id="membername" select="name"></content> -->
-      </a>
+      </div>
 
       <div class="card-content layout vertical">
-        <!-- <paper-ripple class=""
-          recenters>
-        </paper-ripple> -->
         <div id="biocard"
           class="hide-card layout flex vertical center-justified">
-          <!-- <content select="bio"></content> -->
           <span class="bio">[[bio]]</span>
           <a href="[[link]]">[[link]]</a>
         </div>
-
-        <!-- <div id="linkscard"
-          class="layout vertical">
-          <template is="dom-if"
-            if="{{hasLinks}}">
-            <div class="links-header">Contact
-            </div>
-          </template>
-          <template is="dom-if"
-            if="{{!hasLinks}}">
-            <div class="links-header">Contact
-            </div>
-            <div class="nothing-here">Nothing here :(</div>
-          </template>
-          <content id="memberlinks"
-            select="a"></content>
-        </div> -->
       </div>
 
 
@@ -190,34 +107,9 @@
           avatar: String,
           link: String,
           bio: String,
-          // isHidden: {
-          //   type: Boolean,
-          //   observer: '_isHiddenChanged',
-          //   notify: true,
-          //   value: false
-          // },
-          // hasLinks: {
-          //   type: Boolean,
-          //   notify: true,
-          //   value: false
-          // },
-          // name: {
-          //   type: String
-          // },
+
         },
-        ready: function() {
-          console.log(this.nick);
-          // this.name = Polymer.dom(this.$.membername).getDistributedNodes()[0].textContent;
-          // if (Polymer.dom(this.$.memberlinks).getDistributedNodes().length > 0) {
-          //   this.hasLinks = true;
-          // } else {
-          //   this.hasLinks = false;
-          // }
-        },
-        // _isHiddenChanged: function() {
-        //   this.toggleClass('hide-card', !Polymer.dom(this.$.biocard).classList.contains('hide-card'), this.$.biocard);
-        //   this.toggleClass('hide-card', !Polymer.dom(this.$.linkscard).classList.contains('hide-card'), this.$.linkscard);
-        // },
+        ready: function() {}
       });
     })();
   </script>
