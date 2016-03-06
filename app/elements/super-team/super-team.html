@@ -57,20 +57,20 @@
         },
 
         ready: function() {
-          var that = this;
-          var nodes = Polymer.dom(this.$.content).getDistributedNodes();
-
-          var shuffled = [];
-          for (var i = 0; i < nodes.length; ++i) {
-            shuffled.push(i);
-          }
-
-          shuffled = this.shuffle(shuffled);
-
-          nodes.forEach(function(node, i) {
-            node.style.order = shuffled[i];
-            node.style.backgroundColor = that.classColor();
-          });
+          // var that = this;
+          // var nodes = Polymer.dom(this.$.content).getDistributedNodes();
+          //
+          // var shuffled = [];
+          // for (var i = 0; i < nodes.length; ++i) {
+          //   shuffled.push(i);
+          // }
+          //
+          // shuffled = this.shuffle(shuffled);
+          //
+          // nodes.forEach(function(node, i) {
+          //   node.style.order = shuffled[i];
+          //   node.style.backgroundColor = that.classColor();
+          // });
         },
         handleClick: function(e) {
           if (e.target.hasOwnProperty('dataHost') && e.target.dataHost.nodeName === 'SUPER-MEMBER') {

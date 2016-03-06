@@ -3,15 +3,21 @@
 
 <head>
   <meta charset="utf-8">
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description"
+    content="">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1">
   <title>SUPERCORE</title>
   <!-- Place favicon.ico in the `app/` directory -->
-  <link rel="icon" href="favicon.ico" />
+  <link rel="icon"
+    href="favicon.ico" />
 
   <!-- build:css styles/main.css -->
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" href="styles/main.css">
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700'
+    rel='stylesheet'
+    type='text/css'>
+  <link rel="stylesheet"
+    href="styles/main.css">
   <!-- endbuild-->
 
   <!-- build:js bower_components/webcomponentsjs/webcomponents-lite.min.js -->
@@ -19,37 +25,52 @@
   <!-- endbuild -->
 
   <!-- will be replaced with elements/elements.vulcanized.html -->
-  <link rel="import" href="elements/elements.html">
+  <link rel="import"
+    href="elements/elements.html">
   <!-- endreplace-->
-  <link rel="stylesheet" href="bower_components/owl.carousel/dist/assets/owl.carousel.min.css">
-  <link rel="stylesheet" href="bower_components/owl.carousel/dist/assets/owl.theme.default.min.css">
+  <link rel="stylesheet"
+    href="bower_components/owl.carousel/dist/assets/owl.carousel.min.css">
+  <link rel="stylesheet"
+    href="bower_components/owl.carousel/dist/assets/owl.theme.default.min.css">
 </head>
 
-<body unresolved class="fullbleed layout vertical">
+<body unresolved
+  class="fullbleed layout vertical">
   <span id="browser-sync-binding"></span>
-  <template is="dom-bind" id="app">
+  <template is="dom-bind"
+    id="app">
     <div id="main-container">
       <super-header></super-header>
 
       <div class="games-content super-content">
-        <section id="games" class="center-content super-section start-layout vertical center">
-          <super-section-title link-text="more supercore games @ itch.io" link-url="http://supercore.itch.io/">
+        <section id="games"
+          class="center-content super-section start-layout vertical center">
+          <super-section-title link-text="more supercore games @ itch.io"
+            link-url="http://supercore.itch.io/">
             <h2>FEATURED GAMES</h2>
           </super-section-title>
           <super-games>
-            <a style="background-color:rgba(76, 53, 85, 0.7);" href="http://supercore.itch.io/alien-cow-snatchers" class="featured-game layout vertical center-center">
+            <a style="background-color:rgba(76, 53, 85, 0.7);"
+              href="http://supercore.itch.io/alien-cow-snatchers"
+              class="featured-game layout vertical center-center">
               <img src="../../images/games/alien-cow-snatchers.png"></img>
               <span class="game-name">ALIEN COW SNATCHERS</span>
             </a>
-            <a style="background-color:rgba(65, 85, 53, 0.71);" href="http://supercore.itch.io/robo-monster-hunt" class="featured-game layout vertical center-center">
+            <a style="background-color:rgba(65, 85, 53, 0.71);"
+              href="http://supercore.itch.io/robo-monster-hunt"
+              class="featured-game layout vertical center-center">
               <img src="../../images/games/robo-monster-hunt.png"></img>
               <span class="game-name">ROBO MONSTER HUNT</span>
             </a>
-            <a style="background-color:rgba(78, 125, 126, 0.72);" href="http://supercore.itch.io/neon-drop" class="featured-game layout vertical center-center">
+            <a style="background-color:rgba(78, 125, 126, 0.72);"
+              href="http://supercore.itch.io/neon-drop"
+              class="featured-game layout vertical center-center">
               <img src="../../images/games/neon-drop.png"></img>
               <span class="game-name">NEON DROP</span>
             </a>
-            <a style="background-color:rgba(85, 53, 58, 0.72);"href="http://supercore.itch.io/alphabet-hunt" class="featured-game layout vertical center-center">
+            <a style="background-color:rgba(85, 53, 58, 0.72);"
+              href="http://supercore.itch.io/alphabet-hunt"
+              class="featured-game layout vertical center-center">
               <img src="../../images/games/alphabet-hunt.png"></img>
               <span class="game-name">ALPHABET HUNT</span>
             </a>
@@ -58,8 +79,10 @@
       </div>
 
       <div class="blog-content super-content">
-        <section id="latest" class="center-content super-section start-layout vertical center">
-          <super-section-title link-text="check out supercore's blog" link-url="http://blog.supercore.co.uk/">
+        <section id="latest"
+          class="center-content super-section start-layout vertical center">
+          <super-section-title link-text="check out supercore's blog"
+            link-url="http://blog.supercore.co.uk/">
             <h2>LATEST FROM OUR BLOG</h2>
           </super-section-title>
           <super-blog></super-blog>
@@ -67,22 +90,25 @@
       </div>
 
       <div class="team-content super-content">
-        <section id="team" class="center-content super-section start-layout vertical center">
+        <section id="team"
+          class="center-content super-section start-layout vertical center">
           <super-section-title>
             <h2>TEAM</h2>
           </super-section-title>
           <super-team>
-            <super-member>
-              <name>Ben</name>
-              <img class="avatar" src="../../images/avatar/ben.jpg"></img>
-              <bio>This guy is really good at making good quality shit and being busy. Too busy to write a short bio, so I wrote one for him. My name’s Ben and I’m a noob lol</bio>
-              <a href="http://www.zerofifty.one/">
+            <super-member nick="Ben"
+              avatar="../../images/avatar/ben.jpg"
+              bio="This guy is really good at making good quality shit and being busy. Too busy to write a short bio, so I wrote one for him. My name’s Ben and I’m a noob lol"
+              link="http://www.zerofifty.one/">
+              <!-- <a href="http://www.zerofifty.one/">
                 <span>zerofifty.one</span>
-              </a>
+              </a> -->
             </super-member>
-            <super-member>
-              <name>Dan</name>
-              <img class="avatar" src="../../images/avatar/dan.png"></img>
+            <!-- <super-member>
+              <name>Dan
+              </name>
+              <img class="avatar"
+                src="../../images/avatar/dan.png"></img>
               <bio>Hey, I’m Dan. I’ve played games for as long as I can remember. I’m the sysadmin, and mostly code or 3D model stuff.</bio>
               <a href="https://twitter.com/faemir">
                 <span>@faemir</span>
@@ -90,7 +116,8 @@
             </super-member>
             <super-member>
               <name>Kathy</name>
-              <img class="avatar" src="../../images/avatar/kathy.png"></img>
+              <img class="avatar"
+                src="../../images/avatar/kathy.png"></img>
               <bio>Hi, I’m Kathy and I’m still figuring out what to write.</bio>
               <a href="http://kathrynzalecka.com/">
                 <span>kathrynzalecka.com</span>
@@ -98,7 +125,8 @@
             </super-member>
             <super-member>
               <name>Luke</name>
-              <img class="avatar" src="../../images/avatar/luke.png"></img>
+              <img class="avatar"
+                src="../../images/avatar/luke.png"></img>
               <bio>Dunno... Luke makes tasty sounds and ideas.</bio>
               <a href="https://twitter.com/landwulf">
                 <span>@landwulf</span>
@@ -106,7 +134,8 @@
             </super-member>
             <super-member>
               <name>Matt</name>
-              <img class="avatar" src="../../images/avatar/matt.jpg"></img>
+              <img class="avatar"
+                src="../../images/avatar/matt.jpg"></img>
               <bio>My name’s Matt. I make games and here’s why I do what I do. I’m learning huge amounts about game design and coding, and working with friends.</bio>
               <a href="http://www.mattblickem.co.uk/">
                 <span>mattblickem.co.uk</span>
@@ -117,7 +146,8 @@
             </super-member>
             <super-member>
               <name>Sami</name>
-              <img class="avatar" src="../../images/avatar/sami.jpg"></img>
+              <img class="avatar"
+                src="../../images/avatar/sami.jpg"></img>
               <bio>Hello, I'm Sami! Enjoy making video games and playing around with techy internet stuff</bio>
               <a href="http://s.tanbouz.com/">
                 <span>s.tanbouz.com</span>
@@ -128,12 +158,13 @@
             </super-member>
             <super-member>
               <name>Alex</name>
-              <img class="avatar" src="../../images/avatar/al.jpg"></img>
+              <img class="avatar"
+                src="../../images/avatar/al.jpg"></img>
               <bio>Super Meat Boy fan and master PC builder</bio>
               <a href="https://twitter.com/Al_Da_Best">
                 <span>@Al_Da_Best</span>
               </a>
-            </super-member>
+            </super-member> -->
           </super-team>
         </section>
       </div>

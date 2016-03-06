@@ -1,4 +1,5 @@
-<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import"
+  href="../../bower_components/polymer/polymer.html">
 
 <dom-module id="super-member">
   <template>
@@ -9,7 +10,7 @@
         margin: 10px;
         border-radius: 3px;
         border-bottom-right-radius: 14px;
-        height: 130px;
+        height: 180px;
         width: 300px;
         padding: 0px;
         -webkit-touch-callout: none;
@@ -44,7 +45,6 @@
 
       .card-img:hover {
         background-color: rgba(255, 255, 255, 0);
-
       }
 
       .card-content {
@@ -55,38 +55,38 @@
         transition: all 0.5s ease;
       }
 
-      .hide-card {
+      /*.hide-card {
         position: absolute;
         opacity: 0;
         pointer-events: none;
-        /*cursor: default;*/
-      }
+      }*/
 
-      :host >::content name {
+      .nick {
         margin-top: 5px;
         font-size: 1em;
         font-weight: bold;
         color: #55353A;
       }
 
-      :host >::content bio {
+      .bio {
         font-size: 0.9em;
         color: rgba(85, 53, 58, 0.91);
       }
 
-      :host >::content img.avatar {
+      /*:host >::content img.avatar {
         height: 64px;
         width: 64px;
         border-radius: 15px;
-      }
+      }*/
 
-      paper-ripple {
+      /*paper-ripple {
         color: #55353A;
         z-index: 1;
-        cursor: pointer; cursor: hand;
-      }
+        cursor: pointer;
+        cursor: hand;
+      }*/
 
-      ::content:host a {
+      /*::content:host a {
         display: table;
         font-size: 1em;
         color: #55353A;
@@ -131,38 +131,47 @@
       .nothing-here {
         font-size: 0.8em;
         color: #55353A;
-      }
+      }*/
     </style>
 
-    <paper-material elevation="0" class="team-card layout horizontal">
+    <paper-material elevation="0"
+      class="team-card layout horizontal">
 
-      <a href="#" class="card-img layout vertical center-center">
-
-        <content select="img.avatar">
-          <img class="avatar" src="../../images/supercore-person.png"></img>
-        </content>
-        <content id="membername" select="name"></content>
+      <a href="#"
+        class="card-img layout vertical center-center">
+        <img class="avatar"
+          src="[[avatar]]"></img>
+        <span class="nick">[[nick]]</span>
+        <!-- <content id="membername" select="name"></content> -->
       </a>
 
       <div class="card-content layout vertical">
-        <paper-ripple class="" recenters>
-        </paper-ripple>
-        <div id="biocard" class="hide-card layout flex vertical center-justified">
-          <content select="bio"></content>
+        <!-- <paper-ripple class=""
+          recenters>
+        </paper-ripple> -->
+        <div id="biocard"
+          class="hide-card layout flex vertical center-justified">
+          <!-- <content select="bio"></content> -->
+          <span class="bio">[[bio]]</span>
+          <a href="[[link]]">[[link]]</a>
         </div>
 
-        <div id="linkscard" class="layout vertical">
-          <template is="dom-if" if="{{hasLinks}}">
+        <!-- <div id="linkscard"
+          class="layout vertical">
+          <template is="dom-if"
+            if="{{hasLinks}}">
             <div class="links-header">Contact
             </div>
           </template>
-          <template is="dom-if" if="{{!hasLinks}}">
+          <template is="dom-if"
+            if="{{!hasLinks}}">
             <div class="links-header">Contact
             </div>
             <div class="nothing-here">Nothing here :(</div>
           </template>
-          <content id="memberlinks" select="a"></content>
-        </div>
+          <content id="memberlinks"
+            select="a"></content>
+        </div> -->
       </div>
 
 
@@ -177,33 +186,38 @@
       Polymer({
         is: 'super-member',
         properties: {
-          isHidden: {
-            type: Boolean,
-            observer: '_isHiddenChanged',
-            notify: true,
-            value: false
-          },
-          hasLinks: {
-            type: Boolean,
-            notify: true,
-            value: false
-          },
-          name: {
-            type: String
-          },
+          nick: String,
+          avatar: String,
+          link: String,
+          bio: String,
+          // isHidden: {
+          //   type: Boolean,
+          //   observer: '_isHiddenChanged',
+          //   notify: true,
+          //   value: false
+          // },
+          // hasLinks: {
+          //   type: Boolean,
+          //   notify: true,
+          //   value: false
+          // },
+          // name: {
+          //   type: String
+          // },
         },
         ready: function() {
-          this.name = Polymer.dom(this.$.membername).getDistributedNodes()[0].textContent;
-          if (Polymer.dom(this.$.memberlinks).getDistributedNodes().length > 0) {
-            this.hasLinks = true;
-          } else {
-            this.hasLinks = false;
-          }
+          console.log(this.nick);
+          // this.name = Polymer.dom(this.$.membername).getDistributedNodes()[0].textContent;
+          // if (Polymer.dom(this.$.memberlinks).getDistributedNodes().length > 0) {
+          //   this.hasLinks = true;
+          // } else {
+          //   this.hasLinks = false;
+          // }
         },
-        _isHiddenChanged: function() {
-          this.toggleClass('hide-card', !Polymer.dom(this.$.biocard).classList.contains('hide-card'), this.$.biocard);
-          this.toggleClass('hide-card', !Polymer.dom(this.$.linkscard).classList.contains('hide-card'), this.$.linkscard);
-        },
+        // _isHiddenChanged: function() {
+        //   this.toggleClass('hide-card', !Polymer.dom(this.$.biocard).classList.contains('hide-card'), this.$.biocard);
+        //   this.toggleClass('hide-card', !Polymer.dom(this.$.linkscard).classList.contains('hide-card'), this.$.linkscard);
+        // },
       });
     })();
   </script>
