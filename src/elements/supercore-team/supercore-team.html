@@ -1,0 +1,118 @@
+<link rel="import" href="../../../bower_components/polymer/polymer-element.html">
+
+<dom-module id="supercore-team">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+    <div id="team" class="layout wrap horizontal center-center" on-click="handleClick">
+      <slot id="content" name="supercore-member"></slot>
+    </div>
+  </template>
+
+  <script>
+    // (function() {
+    //   'use strict';
+
+    //   Polymer({
+    //     is: 'super-team',
+    //     properties: {
+    //       user: String,
+    //       members: {
+    //         type: Array,
+    //         notify: true,
+    //         value: function() {
+    //           return [];
+    //         }
+    //       }
+    //     },
+    //     // cardColors: ['rgba(78, 138, 207, 0.8)', 'rgba(175, 194, 151, 0.8)', 'rgba(127, 87, 150, 0.8)'],
+    //     cardColors: ['rgba(255, 255, 255, 0.65)'],
+    //     cardColorsCount: 0,
+    //     classColor: function() {
+    //       return this.cardColors[this.cardColorsCount++ % this.cardColors.length];
+    //     },
+    //     shuffle: function(array) {
+    //       var currentIndex = array.length,
+    //         temporaryValue, randomIndex;
+
+    //       // While there remain elements to shuffle...
+    //       while (0 !== currentIndex) {
+
+    //         // Pick a remaining element...
+    //         randomIndex = Math.floor(Math.random() * currentIndex);
+    //         currentIndex -= 1;
+
+    //         // And swap it with the current element.
+    //         temporaryValue = array[currentIndex];
+    //         array[currentIndex] = array[randomIndex];
+    //         array[randomIndex] = temporaryValue;
+    //       }
+    //       return array;
+    //     },
+    //     created: function() {
+    //       this.cardColors = this.shuffle(this.cardColors);
+    //     },
+
+    //     ready: function() {
+    //       // var that = this;
+    //       // var nodes = Polymer.dom(this.$.content).getDistributedNodes();
+    //       //
+    //       // var shuffled = [];
+    //       // for (var i = 0; i < nodes.length; ++i) {
+    //       //   shuffled.push(i);
+    //       // }
+    //       //
+    //       // shuffled = this.shuffle(shuffled);
+    //       //
+    //       // nodes.forEach(function(node, i) {
+    //       //   node.style.order = shuffled[i];
+    //       //   node.style.backgroundColor = that.classColor();
+    //       // });
+    //     },
+    //     handleClick: function(e) {
+    //       if (e.target.hasOwnProperty('dataHost') && e.target.dataHost.nodeName === 'SUPER-MEMBER') {
+    //         var status = e.target.dataHost.isHidden;
+
+    //         if (status === 'undefined') {
+    //           e.target.dataHost.isHidden =  false;
+    //           status = false;
+    //         }
+
+    //         if (!status) {
+    //           var nodes = this.querySelectorAll('super-member');
+    //           for (var i = 0; i < nodes.length; ++i) {
+    //             if (nodes[i].isHidden) {
+    //               nodes[i].isHidden = false;
+    //             }
+    //           }
+    //         }
+    //         e.target.dataHost.isHidden = !status;
+    //       }
+    //     }
+
+    //   });
+    // })();
+
+    class SupercoreTeam extends Polymer.Element {
+      static get is() { return 'supercore-team'; }
+      static get properties() {
+        return {
+          user: String,
+          members: {
+            type: Array,
+            notify: true,
+            value: function () {
+              return [];
+            }
+          }
+        };
+      }
+    }
+
+    window.customElements.define(SupercoreTeam.is, SupercoreTeam);
+  </script>
+
+</dom-module>

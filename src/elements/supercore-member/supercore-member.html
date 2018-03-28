@@ -1,7 +1,6 @@
-<link rel="import"
-  href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../../bower_components/polymer/polymer-element.html">
 
-<dom-module id="super-member">
+<dom-module id="supercore-member">
   <template>
     <style>
       :host {
@@ -74,18 +73,15 @@
       }
     </style>
 
-    <paper-material elevation="0"
-      class="team-card layout horizontal">
+    <paper-material elevation="0" class="team-card layout horizontal">
 
       <div class="card-img layout vertical center-center">
-        <img class="avatar"
-          src="[[avatar]]"></img>
+        <img class="avatar" src="[[avatar]]"></img>
         <span class="nick">[[nick]]</span>
       </div>
 
       <div class="card-content layout vertical">
-        <div id="biocard"
-          class="hide-card layout flex vertical center-justified">
+        <div id="biocard" class="hide-card layout flex vertical center-justified">
           <span class="bio">[[bio]]</span>
           <a href="[[link]]">[[link]]</a>
         </div>
@@ -97,21 +93,19 @@
   </template>
 
   <script>
-    (function() {
-      'use strict';
-
-      Polymer({
-        is: 'super-member',
-        properties: {
+    class SupercoreMember extends Polymer.Element {
+      static get is() { return 'supercore-member'; }
+      static get properties() {
+        return {
           nick: String,
           avatar: String,
           link: String,
           bio: String,
+        };
+      }
+    }
 
-        },
-        ready: function() {}
-      });
-    })();
+    window.customElements.define(SupercoreMember.is, SupercoreMember);
   </script>
 
 </dom-module>
