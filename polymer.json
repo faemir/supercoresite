@@ -1,11 +1,10 @@
 {
   "entrypoint": "index.html",
-  "shell": "src/my-app.html",
+  "shell": "src/supercore-app.html",
   "fragments": [
-    "src/my-view1.html",
-    "src/my-view2.html",
-    "src/my-view3.html",
-    "src/my-view404.html"
+    "src/pages/supercore-home.html",
+    "src/elements/supercore-game/supercore-game.html",
+    "src/elements/supercore-member/supercore-member.html"
   ],
   "sources": [
     "images/**/*",
