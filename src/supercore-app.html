@@ -10,7 +10,7 @@
 <link rel="import" href="../bower_components/iron-pages/iron-pages.html">
 <link rel="import" href="../bower_components/iron-selector/iron-selector.html">
 <link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
-<link href="https://fonts.googleapis.com/css?family=Exo" rel="stylesheet"> 
+<link href="https://fonts.googleapis.com/css?family=Exo" rel="stylesheet">
 
 <link rel="lazy-import" href="supercore-home.html">
 <link rel="lazy-import" href="my-view404.html">
@@ -23,7 +23,7 @@
         --app-primary-color: #FA334E;
         --app-secondary-color: black;
         font-family: 'Exo';
-        
+
         display: block;
       }
 
@@ -74,8 +74,19 @@
         }
       }
 
+      .header-link {
+        font-size: 1.2em;
+        font-weight: 700;
+        color: white;
+        margin: 4px 20px;
+        padding: 4px 8px;
+        text-decoration: none;
+        background-color: rgba(255, 255, 255, 0.205);
+        border-radius: 5px;
+      }
+
       .drawer-list {
-        margin: 0 20px;
+        margin: 0 17px;
       }
 
       .drawer-list a {
@@ -107,10 +118,17 @@
             <a href="http://supercore.co.uk" style="font-size: 0px;">
               <img class="supercore-logo" src="../../images/supercore-logo.png"></img>
             </a>
-            <a class="twitter-link light-link" href="https://twitter.com/super__core">
-              <img class="twitter-logo" src="../../images/twitter.svg"></img>
-              <!-- <p class="header-link">@super__core</p> -->
-            </a>
+            <div class="layout horizontal flex end-justified">
+              <a class="header-link" href="https://supercore.itch.io/">
+                Download @ supercore.itch.io
+              </a>
+              <a class="header-link" href="https://twitter.com/super__core">
+                Meet the team
+              </a>
+              <a class="header-link" href="https://twitter.com/super__core">
+                Follow us @SUPER__CORE
+              </a>
+            </div>
           </app-toolbar>
         </app-header>
 
