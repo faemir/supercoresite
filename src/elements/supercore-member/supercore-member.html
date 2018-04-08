@@ -9,45 +9,20 @@
         margin: 10px;
         border-radius: 3px;
         border-bottom-right-radius: 14px;
-        height: 180px;
+        height: 250px;
         width: 300px;
         padding: 0px;
-        -webkit-touch-callout: none;
-        -webkit-user-select: none;
-        -khtml-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-        cursor: default;
         border: 2px solid white;
-        background-color: rgba(255, 255, 255, 0.68);
-      }
-
-      :host:hover {
-        border: 2px solid rgba(230, 37, 71, 0.65);
-      }
-
-      paper-material {
-        border-radius: 3px;
-        border-bottom-right-radius: 14px;
+        background-color:white;
+        color: rgb(102, 20, 31);
       }
 
       .team-card {
         height: 100%;
       }
 
-      .card-img {
-        position: relative;
-        display: inline-block;
-        height: 100%;
-        width: 100px;
-      }
-
-      .card-img:hover {
-        background-color: rgba(255, 255, 255, 0);
-      }
-
       .card-content {
+        position: absolute;
         padding: 5px 15px;
         width: 200px;
         overflow: hidden;
@@ -56,39 +31,34 @@
 
       .nick {
         margin-top: 5px;
-        font-size: 1em;
+        font-size: 1.4em;
         font-weight: bold;
-        color: #55353A;
       }
 
       .bio {
         font-size: 0.9em;
-        color: rgba(85, 53, 58, 0.91);
       }
 
-      img.avatar {
-        height: 64px;
-        width: 64px;
-        border-radius: 15px;
+      .portfolio-link{
+        text-decoration: none;
+        color: rgba(250, 51, 78, 0.9541);
+        font-weight: 700;
+        /* background-color: rgba(250, 51, 78, 0.9541); */
       }
+
     </style>
 
-    <paper-material elevation="0" class="team-card layout horizontal">
-
-      <div class="card-img layout vertical center-center">
-        <img class="avatar" src="[[avatar]]"></img>
-        <span class="nick">[[nick]]</span>
-      </div>
-
+    <div class="team-card layout horizontal">
       <div class="card-content layout vertical">
+        <span class="nick">[[nick]]</span>
         <div id="biocard" class="hide-card layout flex vertical center-justified">
+          <p>
+            <a class="portfolio-link" href="[[link]]">[[linkName]]</a>
+          </p>
           <span class="bio">[[bio]]</span>
-          <a href="[[link]]">[[link]]</a>
         </div>
       </div>
-
-
-    </paper-material>
+    </div>
 
   </template>
 
@@ -100,6 +70,7 @@
           nick: String,
           avatar: String,
           link: String,
+          linkName: String,
           bio: String,
         };
       }

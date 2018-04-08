@@ -25,6 +25,10 @@
         margin: 0px;
       }
 
+      .team-header{
+        color: rgb(102, 20, 31);
+      }
+
       .center-content {
         margin: 0 auto;
       }
@@ -44,13 +48,15 @@
         text-decoration: none;
       }
 
-      .games-content {
-        background-color: rgba(154, 154, 154, 0.15);
-        padding-bottom: 20px;
+      .game-section{
+        background-color: #FA334E;
+        padding-bottom: 70px;
       }
 
-      .team-content {
-        background-color: rgba(154, 154, 154, 0.15);
+      .team-separator {
+        height: 50px;
+        background-color: #FA334E;
+        width: 100%;
       }
 
       .text-indent {
@@ -59,7 +65,7 @@
     </style>
 
     <div id="main-container" class="layout vertical center">
-      <div class="layout horizontal wrap center-center">
+      <div class="game-section layout horizontal wrap center-center">
         <supercore-game class="">
           <span slot="game">Vivid Sustain</span>
           <video slot="video" class="screenshot" loop autoplay>
@@ -91,72 +97,73 @@
           </video>
         </supercore-game>
         <supercore-game class="">
-          <span slot="game">Alien Cow Snatchers</span>
+          <span slot="game">Robo Monster Hunt</span>
           <video slot="video" class="screenshot" loop autoplay>
-            <source src="../../videos/aliencowsnatchers.mp4" type="video/mp4">
+            <source src="../../videos/robo-monster-hunt.mp4" type="video/mp4">
           </video>
         </supercore-game>
-        <!-- <supercore-game>
-          <img slot="screenshot" class="screenshot" src="../../images/games/tv-trouble.jpg"></img>
-        </supercore-game class="flex-4">
-        <supercore-game>
-          <img slot="screenshot" class="screenshot" src="../../images/games/alien-cow-snatchers.png"></img>
-        </supercore-game class="flex-4">
-        <supercore-game>
-          <img slot="screenshot" class="screenshot" src="../../images/games/robo-monster-hunt.png"></img>
-        </supercore-game class="flex-4">
-        <supercore-game>
-          <img slot="screenshot" class="screenshot" src="../../images/games/neon-drop.png"></img>
+        <supercore-game class="">
+          <span slot="game">Neon Drop</span>
+          <img slot="screenshot" width="100%" height="100%" src="../../images/games/neon-drop.png"></img>
+        </supercore-game>
+        <supercore-game class="">
+          <span slot="game">Alphabet Hunt</span>
+          <video slot="video" class="screenshot" loop autoplay>
+            <source src="../../videos/alphabet-hunt.mp4" type="video/mp4">
+          </video>
+        </supercore-game>
+        <supercore-game class="">
+          <span slot="game">Futile Coda</span>
+          <video slot="video" class="screenshot" loop autoplay>
+            <source src="../../videos/futile-coda.mp4" type="video/mp4">
+          </video>
+        </supercore-game>
+        <!-- <supercore-game class="">
+          <span slot="game">Fry N' Load</span>
+          <img slot="screenshot" width="100%" height="100%" src="../../images/games/fry-n-load.png"></img>
         </supercore-game> -->
+        <supercore-game class="">
+          <span slot="game">Sly Short-sighted Snowmen</span>
+          <img slot="screenshot" width="100%" height="100%" src="../../images/games/snowman.png"></img>
+        </supercore-game>
+        <supercore-game class="">
+          <span slot="game">Sushi Slam</span>
+          <img slot="screenshot" width="100%" height="100%" src="../../images/games/sushi-slam.png"></img>
+        </supercore-game>
+        <supercore-game class="">
+          <span slot="game">I'm Lost</span>
+          <img slot="screenshot" width="100%" height="100%" src="../../images/games/iam-lost.png"></img>
+        </supercore-game>
       </div>
-      <div class="layout horizontal wrap" style="width: 100%;">
+      <div id="team" class="team-content super-content">
+        <h1 class="team-header">SUPERCORE Team</h1>
+        <supercore-member slot="supercore-member" nick="Ben" bio="This guy is really good at making good quality shit and being busy. Too busy to write a short bio, so I wrote one for him. My name’s Ben and I’m a noob lol"
+          link="http://www.zerofifty.one/" link-name="www.zerofifty.one">
+        </supercore-member>
 
-      </div>
-      <!-- <a style="background-color:rgba(85, 53, 58, 0.72);" href="http://supercore.itch.io/alphabet-hunt" class="featured-game layout vertical center-center">
-        <img src="../../images/games/alphabet-hunt.png"></img>
-        <span class="game-name">ALPHABET HUNT</span>
-      </a> -->
-      <!-- <div class="blog-content super-content">
-        <section id="latest" class="center-content super-section start-layout vertical center">
-          <div link-text="check out supercore's blog" link-url="http://blog.supercore.co.uk/">
-            <h2>LATEST FROM OUR BLOG</h2>
-            <span>
-              <a href="http://blog.supercore.co.uk/">check out supercore's blog</a>
-            </span>
-          </div>
-          <super-blog></super-blog>
-        </section>
-      </div> -->
+        <supercore-member slot="supercore-member" nick="Dan" bio="Hey, I’m Dan. I’ve played games for as long as I can remember. I’m the sysadmin, and mostly code or 3D model stuff."
+          link="https://twitter.com/faemir" link-name="twitter.com/faemir">
+        </supercore-member>
 
-      <div class="team-content super-content">
-        <section id="team" class="center-content super-section start-layout vertical center">
-          <div>
-            <h2>TEAM</h2>
-          </div>
-          <supercore-team>
-            <supercore-member slot="supercore-member" nick="Ben" avatar="../../images/avatar/ben.jpg" bio="This guy is really good at making good quality shit and being busy. Too busy to write a short bio, so I wrote one for him. My name’s Ben and I’m a noob lol"
-              link="http://www.zerofifty.one/">
-            </supercore-member>
-            <supercore-member slot="supercore-member" nick="Dan" avatar="../../images/avatar/dan.png" bio="Hey, I’m Dan. I’ve played games for as long as I can remember. I’m the sysadmin, and mostly code or 3D model stuff."
-              link="https://twitter.com/faemir">>
-            </supercore-member>
-            <supercore-member slot="supercore-member" nick="Kathy" avatar="../../images/avatar/kathy.png" bio="Hi, I’m Kathy and I’m still figuring out what to write."
-              link="http://kathrynzalecka.com/">
-            </supercore-member>
-            <supercore-member slot="supercore-member" nick="Luke" avatar="../../images/avatar/luke.png" bio="Dunno... Luke makes tasty sounds and ideas."
-              link="https://twitter.com/landwulf">
-            </supercore-member>
-            <supercore-member slot="supercore-member" nick="Matt" avatar="../../images/avatar/matt.jpg" bio="My name’s Matt. I make games and here’s why I do what I do. I’m learning huge amounts about game design and coding, and working with friends."
-              link="http://www.mattblickem.co.uk/" link2="https://twitter.com/mattblickem">
-            </supercore-member>
-            <supercore-member slot="supercore-member" nick="Sami" avatar="../../images/avatar/sami.jpg" bio="Hello, I'm Sami! Enjoy making video games and playing around with techy internet stuff"
-              link="http://s.tanbouz.com/" link2="http://steamcommunity.com/id/Tanbouz">
-            </supercore-member>
-            <supercore-member slot="supercore-member" nick="Alex" avatar="../../images/avatar/al.jpg" bio="Super Meat Boy fan and master PC builder"
-              link="https://twitter.com/Al_Da_Best">
-            </supercore-member>
-          </supercore-team>
-        </section>
+        <supercore-member slot="supercore-member" nick="Kathy" bio="Hi, I’m Kathy and I’m still figuring out what to write." link="http://kathrynzalecka.com/"
+          link-name="kathrynzalecka.com">
+        </supercore-member>
+
+        <supercore-member slot="supercore-member" nick="Luke" bio="Dunno... Luke makes tasty sounds and ideas." link="https://twitter.com/landwulf"
+          link-name="twitter.com/landwulf">
+        </supercore-member>
+
+        <supercore-member slot="supercore-member" nick="Matt" bio="My name’s Matt. I make games and here’s why I do what I do. I’m learning huge amounts about game design and coding, and working with friends."
+          link="http://www.mattblickem.co.uk/" link-name="www.mattblickem.co.uk">
+        </supercore-member>
+
+        <supercore-member slot="supercore-member" nick="Sami" bio="Cloud & Server Side wizard and tinkering with random video game stuff!"
+          link="http://s.tanbouz.com/" link-name="s.tanbouz.com">
+        </supercore-member>
+
+        <supercore-member slot="supercore-member" nick="Alex" bio="Super Meat Boy fan and master PC builder" link="https://twitter.com/Al_Da_Best"
+          link-name="twitter.com/Al_Da_Best">
+        </supercore-member>
       </div>
     </div>
   </template>
@@ -164,6 +171,10 @@
   <script>
     class SupercoreHome extends Polymer.Element {
       static get is() { return 'supercore-home'; }
+
+      scrollToTeam() {
+        this.$.team.scrollIntoView();
+      }
     }
 
     window.customElements.define(SupercoreHome.is, SupercoreHome);
