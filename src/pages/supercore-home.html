@@ -1,37 +1,36 @@
-<!--
-@license
-Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
-This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
-The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
-The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
-Code distributed by Google as part of the polymer project is also
-subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
--->
-
 <link rel="import" href="../../bower_components/polymer/polymer-element.html">
 <link rel="import" href="../shared-styles.html">
 
 <link rel="import" href="../elements/supercore-header/supercore-header.html">
-<link rel="import" href="../elements/supercore-games/supercore-games.html">
+<link rel="import" href="../elements/supercore-game/supercore-game.html">
 <link rel="import" href="../elements/supercore-team/supercore-team.html">
 <link rel="import" href="../elements/supercore-member/supercore-member.html">
 
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
+
 <dom-module id="supercore-home">
   <template>
+    <style is="custom-style" include="iron-flex iron-flex-alignment"></style>
     <style include="shared-styles">
       :host {
         display: block;
+        @apply --layout-vertical;
+        @apply --layout-center;
+        width: 100%;
+      }
 
-        padding: 10px;
+      #main-container {
+        max-width: 2560px;
+        width: 100%;
+        margin: 0px;
       }
 
       .center-content {
-        width: 80%;
         margin: 0 auto;
       }
 
-      .super-content {
-        margin-top: 20px;
+      .screenshot {
+        width: 100%;
       }
 
       .featured-game {
@@ -57,53 +56,66 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       .text-indent {
         margin-left: 4px;
       }
-
-      .game-name {
-        font-size: 1em;
-        color: rgb(230, 230, 230);
-        font-weight: bold;
-      }
     </style>
 
-    <div id="main-container">
-      <supercore-header></supercore-header>
-
-      <div class="games-content super-content">
-        <section id="games" class="center-content super-section start-layout vertical center">
-          <div>
-            <h2>FEATURED GAMES</h2>
-            <span>
-              <a href="http://supercore.itch.io/">more supercore games @ itch.io</a>
-            </span>
-          </div>
-          <supercore-games>
-            <a slot="supercore-game" style="background-color:rgba(94, 94, 148, 0.72);" href="http://supercore.itch.io/tvtrouble" class="featured-game layout vertical center-center">
-              <img src="../../images/games/tv-trouble.jpg"></img>
-              <span class="game-name">TV TROUBLE</span>
-            </a>
-            <a slot="supercore-game" style="background-color:rgba(76, 53, 85, 0.7);" href="http://supercore.itch.io/alien-cow-snatchers"
-              class="featured-game layout vertical center-center">
-              <img src="../../images/games/alien-cow-snatchers.png"></img>
-              <span class="game-name">ALIEN COW SNATCHERS</span>
-            </a>
-            <a slot="supercore-game" style="background-color:rgba(65, 85, 53, 0.71);" href="http://supercore.itch.io/robo-monster-hunt"
-              class="featured-game layout vertical center-center">
-              <img src="../../images/games/robo-monster-hunt.png"></img>
-              <span class="game-name">ROBO MONSTER HUNT</span>
-            </a>
-            <a slot="supercore-game" style="background-color:rgba(78, 125, 126, 0.72);" href="http://supercore.itch.io/neon-drop" class="featured-game layout vertical center-center">
-              <img src="../../images/games/neon-drop.png"></img>
-              <span class="game-name">NEON DROP</span>
-            </a>
-            <!-- <a style="background-color:rgba(85, 53, 58, 0.72);" href="http://supercore.itch.io/alphabet-hunt" class="featured-game layout vertical center-center">
-              <img src="../../images/games/alphabet-hunt.png"></img>
-              <span class="game-name">ALPHABET HUNT</span>
-            </a> -->
-
-          </supercore-games>
-        </section>
+    <div id="main-container" class="layout vertical center">
+      <div class="layout horizontal wrap center-center">
+        <supercore-game class="">
+          <span slot="game">Vivid Sustain</span>
+          <video slot="video" class="screenshot" loop autoplay>
+            <source src="../../videos/vivid-sustain.mp4" type="video/mp4">
+          </video>
+        </supercore-game>
+        <supercore-game class="">
+          <span slot="game">Tiny Venture</span>
+          <video slot="video" class="screenshot" loop autoplay>
+            <source src="../../videos/tiny-venture.mp4" type="video/mp4">
+          </video>
+        </supercore-game>
+        <supercore-game class="">
+          <span slot="game">Chronocrypt</span>
+          <video slot="video" class="screenshot" loop autoplay>
+            <source src="../../videos/chronocrypt.mp4" type="video/mp4">
+          </video>
+        </supercore-game>
+        <supercore-game class="">
+          <span slot="game">TV Trouble</span>
+          <video slot="video" class="screenshot" loop autoplay>
+            <source src="../../videos/tvtrouble.mp4" type="video/mp4">
+          </video>
+        </supercore-game>
+        <supercore-game class="">
+          <span slot="game">Alien Cow Snatchers</span>
+          <video slot="video" class="screenshot" loop autoplay>
+            <source src="../../videos/aliencowsnatchers.mp4" type="video/mp4">
+          </video>
+        </supercore-game>
+        <supercore-game class="">
+          <span slot="game">Alien Cow Snatchers</span>
+          <video slot="video" class="screenshot" loop autoplay>
+            <source src="../../videos/aliencowsnatchers.mp4" type="video/mp4">
+          </video>
+        </supercore-game>
+        <!-- <supercore-game>
+          <img slot="screenshot" class="screenshot" src="../../images/games/tv-trouble.jpg"></img>
+        </supercore-game class="flex-4">
+        <supercore-game>
+          <img slot="screenshot" class="screenshot" src="../../images/games/alien-cow-snatchers.png"></img>
+        </supercore-game class="flex-4">
+        <supercore-game>
+          <img slot="screenshot" class="screenshot" src="../../images/games/robo-monster-hunt.png"></img>
+        </supercore-game class="flex-4">
+        <supercore-game>
+          <img slot="screenshot" class="screenshot" src="../../images/games/neon-drop.png"></img>
+        </supercore-game> -->
       </div>
+      <div class="layout horizontal wrap" style="width: 100%;">
 
+      </div>
+      <!-- <a style="background-color:rgba(85, 53, 58, 0.72);" href="http://supercore.itch.io/alphabet-hunt" class="featured-game layout vertical center-center">
+        <img src="../../images/games/alphabet-hunt.png"></img>
+        <span class="game-name">ALPHABET HUNT</span>
+      </a> -->
       <!-- <div class="blog-content super-content">
         <section id="latest" class="center-content super-section start-layout vertical center">
           <div link-text="check out supercore's blog" link-url="http://blog.supercore.co.uk/">
