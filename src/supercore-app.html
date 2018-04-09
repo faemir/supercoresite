@@ -124,14 +124,13 @@
       }
 
       .drawer-list {
-        margin: 0 17px;
+        margin: 17px 17px;
       }
 
       .drawer-list a {
         display: block;
         padding: 0 16px;
         text-decoration: none;
-        /* color: var(--app-secondary-color); */
       }
 
       .drawer-list a.iron-selected {
@@ -151,11 +150,11 @@
       <app-drawer id="drawer" slot="drawer" swipe-open="[[narrow]]">
         <app-toolbar class="drawer-title">SUPERCORE Games</app-toolbar>
         <div class="drawer-list" role="navigation">
-          <a class="drawer-link" href="https://supercore.itch.io/">
-            Download @ supercore.itch.io
-          </a>
           <a class="drawer-link" href="#team" on-click="scrollToTeam">
             Meet the team
+          </a>
+          <a class="drawer-link" href="https://supercore.itch.io/">
+            Download @ supercore.itch.io
           </a>
           <a class="drawer-link" href="https://twitter.com/super__core">
             Follow us @SUPER__CORE
@@ -175,11 +174,11 @@
               <a class="header-link" href="https://supercore.itch.io/">
                 Download @ supercore.itch.io
               </a>
-              <a class="header-link" href="#team" on-click="scrollToTeam">
-                Meet the team
-              </a>
               <a class="header-link" href="https://twitter.com/super__core">
                 Follow us @SUPER__CORE
+              </a>
+              <a class="header-link" href="#team" on-click="scrollToTeam">
+                Meet the team
               </a>
               <paper-icon-button class="drawer-button" drawer-toggle>=</paper-icon-button>
             </div>
