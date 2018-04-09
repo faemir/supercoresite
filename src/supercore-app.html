@@ -5,11 +5,14 @@
 <link rel="import" href="../bower_components/app-layout/app-header-layout/app-header-layout.html">
 <link rel="import" href="../bower_components/app-layout/app-scroll-effects/app-scroll-effects.html">
 <link rel="import" href="../bower_components/app-layout/app-toolbar/app-toolbar.html">
+
 <link rel="import" href="../bower_components/app-route/app-location.html">
 <link rel="import" href="../bower_components/app-route/app-route.html">
+
 <link rel="import" href="../bower_components/iron-pages/iron-pages.html">
 <link rel="import" href="../bower_components/iron-selector/iron-selector.html">
 <link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
+
 <link href="https://fonts.googleapis.com/css?family=Exo" rel="stylesheet">
 
 <link rel="lazy-import" href="pages/supercore-home.html">
@@ -27,10 +30,6 @@
         display: block;
       }
 
-      app-drawer-layout:not([narrow]) [drawer-toggle] {
-        display: none;
-      }
-
       app-header {
         color: #fff;
         background-color: var(--app-primary-color);
@@ -44,7 +43,7 @@
         width: 190px;
       }
 
-      @media (max-width: 600px) {
+      @media (max-width: 800px) {
         .supercore-logo {
           width: 130px;
         }
@@ -57,7 +56,7 @@
         height: 96px;
       }
 
-      @media (max-width: 600px) {
+      @media (max-width: 800px) {
         .supercore-header {
           height: 64px;
         }
@@ -67,21 +66,61 @@
         height: 96px;
       }
 
-      @media (max-width: 600px) {
+      @media (max-width: 800px) {
         .supercore-toolbar {
           height: 64px;
         }
       }
 
+
+      @media (max-width: 800px) {
+        .header-link {
+          display: none;
+        }
+      }
+
       .header-link {
-        font-size: 1.2em;
+        text-align: center;
+        font-size: 1em;
         font-weight: 700;
         color: white;
         margin: 4px 20px;
         padding: 4px 8px;
         text-decoration: none;
-        background-color: rgba(255, 255, 255, 0.205);
+        background-color: rgba(255, 255, 255, 0.15);
         border-radius: 5px;
+        border: rgb(226, 226, 226) 2px solid;
+      }
+
+      app-drawer-layout:not([narrow]) [drawer-toggle] {
+        display: none;
+      }
+
+      .drawer-link {
+        font-size: 1.1em;
+        color: rgb(0, 0, 0);
+        margin: 0px 14px 24px 14px;
+        text-decoration: none;
+        border-left: #FA334E 3px solid;
+      }
+
+      .drawer-button {
+        display: none;
+      }
+
+      @media (max-width: 800px) {
+        .drawer-button {
+          display: block;
+          font-weight: 700;
+          color: white;
+          font-size: 40px;
+        }
+      }
+
+      .drawer-title {
+        color: rgb(255, 255, 255);
+        font-weight: 700;
+        background-color: #FA334E;
       }
 
       .drawer-list {
@@ -92,7 +131,7 @@
         display: block;
         padding: 0 16px;
         text-decoration: none;
-        color: var(--app-secondary-color);
+        /* color: var(--app-secondary-color); */
       }
 
       .drawer-list a.iron-selected {
@@ -107,7 +146,22 @@
     <app-route route="{{route}}" pattern="[[rootPath]]:page" data="{{routeData}}" tail="{{subroute}}">
     </app-route>
 
-    <app-drawer-layout fullbleed narrow="{{narrow}}">
+    <app-drawer-layout fullbleed force-narrow>
+      <!-- Drawer content -->
+      <app-drawer id="drawer" slot="drawer" swipe-open="[[narrow]]">
+        <app-toolbar class="drawer-title">SUPERCORE Games</app-toolbar>
+        <div class="drawer-list" role="navigation">
+          <a class="drawer-link" href="https://supercore.itch.io/">
+            Download @ supercore.itch.io
+          </a>
+          <a class="drawer-link" href="#team" on-click="scrollToTeam">
+            Meet the team
+          </a>
+          <a class="drawer-link" href="https://twitter.com/super__core">
+            Follow us @SUPER__CORE
+          </a>
+        </div>
+      </app-drawer>
       <!-- Main content -->
       <app-header-layout has-scrolling-region>
 
@@ -116,6 +170,7 @@
             <a href="http://supercore.co.uk" style="font-size: 0px;">
               <img class="supercore-logo" src="../../images/supercore-logo.png"></img>
             </a>
+
             <div class="layout horizontal flex end-justified">
               <a class="header-link" href="https://supercore.itch.io/">
                 Download @ supercore.itch.io
@@ -126,6 +181,7 @@
               <a class="header-link" href="https://twitter.com/super__core">
                 Follow us @SUPER__CORE
               </a>
+              <paper-icon-button class="drawer-button" drawer-toggle>=</paper-icon-button>
             </div>
           </app-toolbar>
         </app-header>
@@ -173,9 +229,9 @@
         this.page = page || 'home';
 
         // Close a non-persistent drawer when the page & route are changed.
-        // if (!this.$.drawer.persistent) {
-        //   this.$.drawer.close();
-        // }
+        if (!this.$.drawer.persistent) {
+          this.$.drawer.close();
+        }
       }
 
       _pageChanged(page) {

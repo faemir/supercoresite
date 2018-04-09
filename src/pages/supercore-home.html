@@ -23,7 +23,12 @@
       }
 
       .team-header {
+        /* margin-left: 30px; */
         color: rgb(102, 20, 31);
+      }
+
+      .team-content{
+        margin: 0px 40px;
       }
 
       .center-content {
@@ -132,35 +137,37 @@
           <img slot="screenshot" width="100%" height="100%" src="../../images/games/iam-lost.jpg"></img>
         </supercore-game>
       </div>
-      <div id="team" class="team-content super-content">
-        <h1 class="team-header">SUPERCORE Team</h1>
-        <supercore-member slot="supercore-member" nick="Ben" bio="This guy is really good at making good quality shit and being busy. Too busy to write a short bio, so I wrote one for him. My name’s Ben and I’m a noob lol"
-          link="http://www.zerofifty.one/" link-name="www.zerofifty.one">
-        </supercore-member>
+      <div id="team" class="team-content layout vertical center">
+        <h1 class="team-header self-start">SUPERCORE Team</h1>
+        <div class="layout horizontal wrap center">
+          <supercore-member slot="supercore-member" nick="Ben" bio="This guy is really good at making good quality shit and being busy. Too busy to write a short bio, so I wrote one for him. My name’s Ben and I’m a noob lol"
+            link="http://www.zerofifty.one/" link-name="www.zerofifty.one">
+          </supercore-member>
 
-        <supercore-member slot="supercore-member" nick="Dan" bio="Hey, I’m Dan. I’ve played games for as long as I can remember. I’m the sysadmin, and mostly code or 3D model stuff."
-          link="https://twitter.com/faemir" link-name="twitter.com/faemir">
-        </supercore-member>
+          <supercore-member slot="supercore-member" nick="Dan" bio="Hey, I’m Dan. I’ve played games for as long as I can remember. I’m the sysadmin, and mostly code or 3D model stuff."
+            link="https://twitter.com/faemir" link-name="twitter.com/faemir">
+          </supercore-member>
 
-        <supercore-member slot="supercore-member" nick="Kathy" bio="Hi, I’m Kathy and I’m still figuring out what to write." link="http://kathrynzalecka.com/"
-          link-name="kathrynzalecka.com">
-        </supercore-member>
+          <supercore-member slot="supercore-member" nick="Kathy" bio="Hi, I’m Kathy and I’m still figuring out what to write." link="http://kathrynzalecka.com/"
+            link-name="kathrynzalecka.com">
+          </supercore-member>
 
-        <supercore-member slot="supercore-member" nick="Luke" bio="Dunno... Luke makes tasty sounds and ideas." link="https://twitter.com/landwulf"
-          link-name="twitter.com/landwulf">
-        </supercore-member>
+          <supercore-member slot="supercore-member" nick="Luke" bio="Dunno... Luke makes tasty sounds and ideas." link="https://twitter.com/landwulf"
+            link-name="twitter.com/landwulf">
+          </supercore-member>
 
-        <supercore-member slot="supercore-member" nick="Matt" bio="My name’s Matt. I make games and here’s why I do what I do. I’m learning huge amounts about game design and coding, and working with friends."
-          link="http://www.mattblickem.co.uk/" link-name="www.mattblickem.co.uk">
-        </supercore-member>
+          <supercore-member slot="supercore-member" nick="Matt" bio="My name’s Matt. I make games and here’s why I do what I do. I’m learning huge amounts about game design and coding, and working with friends."
+            link="http://www.mattblickem.co.uk/" link-name="www.mattblickem.co.uk">
+          </supercore-member>
 
-        <supercore-member slot="supercore-member" nick="Sami" bio="Cloud & Server Side wizard and tinkering with random video game stuff!"
-          link="http://s.tanbouz.com/" link-name="s.tanbouz.com">
-        </supercore-member>
+          <supercore-member slot="supercore-member" nick="Sami" bio="Cloud & Server Side wizard and tinkering with random video game stuff!"
+            link="http://s.tanbouz.com/" link-name="s.tanbouz.com">
+          </supercore-member>
 
-        <supercore-member slot="supercore-member" nick="Alex" bio="Super Meat Boy fan and master PC builder" link="https://twitter.com/Al_Da_Best"
-          link-name="twitter.com/Al_Da_Best">
-        </supercore-member>
+          <supercore-member slot="supercore-member" nick="Alex" bio="Super Meat Boy fan and master PC builder" link="https://twitter.com/Al_Da_Best"
+            link-name="twitter.com/Al_Da_Best">
+          </supercore-member>
+        </div>
       </div>
     </div>
   </template>
