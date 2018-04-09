@@ -1,0 +1,87 @@
+<link rel="import" href="../../../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../../../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
+
+<dom-module id="supercore-game">
+  <template>
+    <style is="custom-style" include="iron-flex iron-flex-alignment"></style>
+    <style>
+      :host {
+        @apply --layout-flex-6;
+        position: relative;
+        margin: 0px;
+        padding: 0px;
+        font-size: 0px;
+        min-width: 641px;
+        /* max-width: 900px; */
+      }
+
+      .overlay {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 10;
+        font-size: 10px;
+      }
+
+      @media (max-width: 600px) {
+        :host {
+          min-width: 301px;
+          max-width: 900px;
+        }
+      }
+
+      h3 ::slotted(*) {
+        font-size: 50px;
+        color: white;
+        margin: 20px;
+        
+      }
+
+      @media (max-width: 600px) {
+        h3 ::slotted(*) {
+        font-size: 25px;
+        color: white;
+        margin: 15px;
+        
+      }
+      }
+
+      .game-title{
+        background-color: rgba(250, 51, 78, 0.589);
+        margin-bottom: 9%;
+        border-radius: 5px 0px 0px 30px;
+      }
+
+      div ::slotted(.screenshot) {
+        width: 100%;
+        height: 100%;
+      }
+
+    </style>
+
+    <div class="screenshot-box">
+      <div class="overlay layout horizontal end end-justified">
+        <h3 class="game-title">
+            <slot name="game" class=""></slot>
+        </h3>
+      </div>
+      <slot name="screenshot" class="screenshot"></slot>
+      <slot name="video" class="screenshot"></slot>
+    </div>
+
+
+  </template>
+
+  <script>
+    class SupercoreGame extends Polymer.Element {
+      static get is() { return 'supercore-game'; }
+      static get properties() {
+        return {
+        };
+      }
+    }
+
+    window.customElements.define(SupercoreGame.is, SupercoreGame);
+  </script>
+
+</dom-module>

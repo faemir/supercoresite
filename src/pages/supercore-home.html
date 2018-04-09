@@ -1,0 +1,186 @@
+<link rel="import" href="../../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../shared-styles.html">
+<link rel="import" href="../elements/supercore-game/supercore-game.html">
+<link rel="import" href="../elements/supercore-member/supercore-member.html">
+
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
+
+<dom-module id="supercore-home">
+  <template>
+    <style is="custom-style" include="iron-flex iron-flex-alignment"></style>
+    <style include="shared-styles">
+      :host {
+        display: block;
+        @apply --layout-vertical;
+        @apply --layout-center;
+        width: 100%;
+      }
+
+      #main-container {
+        max-width: 2560px;
+        width: 100%;
+        margin: 0px;
+      }
+
+      .team-header {
+        /* margin-left: 30px; */
+        color: rgb(102, 20, 31);
+      }
+
+      .team-content{
+        margin: 0px 40px;
+      }
+
+      .center-content {
+        margin: 0 auto;
+      }
+
+      .screenshot {
+        width: 100%;
+      }
+
+      .featured-game {
+        width: 100%;
+        height: 100%;
+        box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12), 0px 3px 1px -2px rgba(0, 0, 0, 0.2);
+      }
+
+      a.featured-game {
+        color: #ffffff;
+        text-decoration: none;
+      }
+
+      .game-section {
+        background-color: #FA334E;
+        padding-bottom: 70px;
+      }
+
+      .team-separator {
+        height: 50px;
+        background-color: #FA334E;
+        width: 100%;
+      }
+
+      .text-indent {
+        margin-left: 4px;
+      }
+    </style>
+
+    <div id="main-container" class="layout vertical center">
+      <div class="game-section layout horizontal wrap center-center">
+        <supercore-game class="">
+          <span slot="game">Vivid Sustain</span>
+          <video slot="video" class="screenshot" loop autoplay>
+            <source src="../../videos/vivid-sustain.mp4" type="video/mp4">
+          </video>
+        </supercore-game>
+        <supercore-game class="">
+          <span slot="game">Tiny Venture</span>
+          <video slot="video" class="screenshot" loop autoplay>
+            <source src="../../videos/tiny-venture.mp4" type="video/mp4">
+          </video>
+        </supercore-game>
+        <supercore-game class="">
+          <span slot="game">Chronocrypt</span>
+          <video slot="video" class="screenshot" loop autoplay>
+            <source src="../../videos/chronocrypt.mp4" type="video/mp4">
+          </video>
+        </supercore-game>
+        <supercore-game class="">
+          <span slot="game">TV Trouble</span>
+          <video slot="video" class="screenshot" loop autoplay>
+            <source src="../../videos/tvtrouble.mp4" type="video/mp4">
+          </video>
+        </supercore-game>
+        <supercore-game class="">
+          <span slot="game">Alien Cow Snatchers</span>
+          <video slot="video" class="screenshot" loop autoplay>
+            <source src="../../videos/aliencowsnatchers.mp4" type="video/mp4">
+          </video>
+        </supercore-game>
+        <supercore-game class="">
+          <span slot="game">Robo Monster Hunt</span>
+          <video slot="video" class="screenshot" loop autoplay>
+            <source src="../../videos/robo-monster-hunt.mp4" type="video/mp4">
+          </video>
+        </supercore-game>
+        <supercore-game class="">
+          <span slot="game">Neon Drop</span>
+          <img slot="screenshot" width="100%" height="100%" src="../../images/games/neon-drop.jpg"></img>
+        </supercore-game>
+        <supercore-game class="">
+          <span slot="game">Alphabet Hunt</span>
+          <video slot="video" class="screenshot" loop autoplay>
+            <source src="../../videos/alphabet-hunt.mp4" type="video/mp4">
+          </video>
+        </supercore-game>
+        <supercore-game class="">
+          <span slot="game">Futile Coda</span>
+          <video slot="video" class="screenshot" loop autoplay>
+            <source src="../../videos/futile-coda.mp4" type="video/mp4">
+          </video>
+        </supercore-game>
+        <!-- <supercore-game class="">
+          <span slot="game">Fry N' Load</span>
+          <img slot="screenshot" width="100%" height="100%" src="../../images/games/fry-n-load.png"></img>
+        </supercore-game> -->
+        <supercore-game class="">
+          <span slot="game">Sly Short-sighted Snowmen</span>
+          <img slot="screenshot" width="100%" height="100%" src="../../images/games/snowman.jpg"></img>
+        </supercore-game>
+        <supercore-game class="">
+          <span slot="game">Sushi Slam</span>
+          <img slot="screenshot" width="100%" height="100%" src="../../images/games/sushi-slam.jpg"></img>
+        </supercore-game>
+        <supercore-game class="">
+          <span slot="game">I'm Lost</span>
+          <img slot="screenshot" width="100%" height="100%" src="../../images/games/iam-lost.jpg"></img>
+        </supercore-game>
+      </div>
+      <div id="team" class="team-content layout vertical center">
+        <h1 class="team-header self-start">SUPERCORE Team</h1>
+        <div class="layout horizontal wrap center">
+          <supercore-member slot="supercore-member" nick="Ben" bio="This guy is really good at making good quality shit and being busy. Too busy to write a short bio, so I wrote one for him. My name’s Ben and I’m a noob lol"
+            link="http://www.zerofifty.one/" link-name="www.zerofifty.one">
+          </supercore-member>
+
+          <supercore-member slot="supercore-member" nick="Dan" bio="Hey, I’m Dan. I’ve played games for as long as I can remember. I’m the sysadmin, and mostly code or 3D model stuff."
+            link="https://twitter.com/faemir" link-name="twitter.com/faemir">
+          </supercore-member>
+
+          <supercore-member slot="supercore-member" nick="Kathy" bio="Hi, I’m Kathy and I’m still figuring out what to write." link="http://kathrynzalecka.com/"
+            link-name="kathrynzalecka.com">
+          </supercore-member>
+
+          <supercore-member slot="supercore-member" nick="Luke" bio="Dunno... Luke makes tasty sounds and ideas." link="https://twitter.com/landwulf"
+            link-name="twitter.com/landwulf">
+          </supercore-member>
+
+          <supercore-member slot="supercore-member" nick="Matt" bio="My name’s Matt. I make games and here’s why I do what I do. I’m learning huge amounts about game design and coding, and working with friends."
+            link="http://www.mattblickem.co.uk/" link-name="www.mattblickem.co.uk">
+          </supercore-member>
+
+          <supercore-member slot="supercore-member" nick="Sami" bio="Cloud & Server Side wizard and tinkering with random video game stuff!"
+            link="http://s.tanbouz.com/" link-name="s.tanbouz.com">
+          </supercore-member>
+
+          <supercore-member slot="supercore-member" nick="Alex" bio="Super Meat Boy fan and master PC builder" link="https://twitter.com/Al_Da_Best"
+            link-name="twitter.com/Al_Da_Best">
+          </supercore-member>
+        </div>
+      </div>
+    </div>
+  </template>
+
+  <script>
+    class SupercoreHome extends Polymer.Element {
+      static get is() { return 'supercore-home'; }
+
+      scrollToTeam() {
+        this.$.team.scrollIntoView();
+      }
+    }
+
+    window.customElements.define(SupercoreHome.is, SupercoreHome);
+  </script>
+</dom-module>

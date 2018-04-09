@@ -1,0 +1,82 @@
+<link rel="import" href="../../../bower_components/polymer/polymer-element.html">
+
+<dom-module id="supercore-member">
+  <template>
+    <style>
+      :host {
+        position: relative;
+        display: inline-block;
+        margin: 10px;
+        border-radius: 3px;
+        border-bottom-right-radius: 14px;
+        height: 250px;
+        width: 250px;
+        padding: 0px;
+        border: 2px solid white;
+        background-color:white;
+        color: rgb(102, 20, 31);
+      }
+
+      .team-card {
+        height: 100%;
+      }
+
+      .card-content {
+        position: absolute;
+        padding: 5px 15px;
+        width: 200px;
+        overflow: hidden;
+        transition: all 0.5s ease;
+      }
+
+      .nick {
+        margin-top: 5px;
+        font-size: 1.4em;
+        font-weight: bold;
+      }
+
+      .bio {
+        font-size: 0.9em;
+      }
+
+      .portfolio-link{
+        text-decoration: none;
+        color: rgba(250, 51, 78, 0.9541);
+        font-weight: 700;
+        /* background-color: rgba(250, 51, 78, 0.9541); */
+      }
+
+    </style>
+
+    <div class="team-card layout horizontal">
+      <div class="card-content layout vertical">
+        <span class="nick">[[nick]]</span>
+        <div id="biocard" class="hide-card layout flex vertical center-justified">
+          <p>
+            <a class="portfolio-link" href="[[link]]">[[linkName]]</a>
+          </p>
+          <span class="bio">[[bio]]</span>
+        </div>
+      </div>
+    </div>
+
+  </template>
+
+  <script>
+    class SupercoreMember extends Polymer.Element {
+      static get is() { return 'supercore-member'; }
+      static get properties() {
+        return {
+          nick: String,
+          avatar: String,
+          link: String,
+          linkName: String,
+          bio: String,
+        };
+      }
+    }
+
+    window.customElements.define(SupercoreMember.is, SupercoreMember);
+  </script>
+
+</dom-module>
